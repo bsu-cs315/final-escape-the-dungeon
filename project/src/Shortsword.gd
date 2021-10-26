@@ -1,16 +1,22 @@
-extends Node2D
+extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const BRAND := "shortsword"
+const NORMAL_PATH := "res://Assets/Swords/Shortsword.png"
+const IRON_PATH := "res://Assets/Swords/Iron Shortsword.png"
+const GOLD_PATH := "res://Assets/Swords/Golden Shortsword.png"
 
 
-# Called when the node enters the scene tree for the first time.
+var type := "normal"
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	#sword.construct(type, BRAND)
+	pass
+	
+func updateType(new_type):
+	type = new_type
+	if type == "golden":
+		$Sprite.texture = load(GOLD_PATH)
+	elif type == "iron":
+		$Sprite.texture = load(IRON_PATH)
+	#sword.construct(type, BRAND)
