@@ -13,7 +13,7 @@ var type := "Normal"
 var damage := NORMAL_DAMAGE
 
 
-func updateType(new_type):
+func update__type(new_type):
 	type = new_type
 	if type == "Golden":
 		$Sprite.texture = load(GOLD_PATH)
