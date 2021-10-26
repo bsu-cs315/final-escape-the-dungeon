@@ -10,8 +10,10 @@ const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
 
 
-var type := "Normal"
 export var damage := NORMAL_DAMAGE
+
+
+var type := "Normal"
 
 
 var _is_attacking := false

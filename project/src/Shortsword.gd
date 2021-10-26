@@ -1,5 +1,6 @@
 extends Area2D
 
+
 const BRAND := "Shortsword"
 const NORMAL_PATH := "res://Assets/Swords/Shortsword.png"
 const IRON_PATH := "res://Assets/Swords/Iron Shortsword.png"
@@ -9,8 +10,10 @@ const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
 
 
-var type := "Normal"
 export var damage := NORMAL_DAMAGE
+
+
+var type := "Normal"
 
 
 var _is_attacking := false

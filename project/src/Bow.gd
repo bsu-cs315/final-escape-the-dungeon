@@ -14,8 +14,10 @@ const GOLD_DAMAGE := 3
 const BOW_ROTATION := -45
 
 
-var type := "Normal"
 export var damage := NORMAL_DAMAGE
+
+
+var type := "Normal"
 
 
 var _is_attacking := false
@@ -28,6 +30,9 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
+	var arrow = load("res://src/Arrow.tscn").instance()
+	arrow.rotation = rotation
+	arrow.fire()
 	_is_attacking = false
 	visible = false
 
