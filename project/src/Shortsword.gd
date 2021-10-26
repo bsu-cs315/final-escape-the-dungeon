@@ -10,7 +10,19 @@ const GOLD_DAMAGE := 3
 
 
 var type := "Normal"
-var damage := NORMAL_DAMAGE
+export var damage := NORMAL_DAMAGE
+
+
+var _is_attacking := false
+
+
+func _ready():
+	visible = false
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	_is_attacking = false
+	visible = false
 
 
 func update__type(new_type):
@@ -21,3 +33,11 @@ func update__type(new_type):
 	elif type == "Iron":
 		$Sprite.texture = load(IRON_PATH)
 		damage = IRON_DAMAGE
+
+
+func attack():
+	if _is_attacking:
+		return
+	visible = true
+	$AnimationPlayer.play("Attack")
+	_is_attacking = true

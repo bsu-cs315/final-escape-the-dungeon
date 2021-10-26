@@ -15,12 +15,21 @@ const BOW_ROTATION := -45
 
 
 var type := "Normal"
-var damage := NORMAL_DAMAGE
+export var damage := NORMAL_DAMAGE
+
+
+var _is_attacking := false
 
 
 func _ready():
+	visible = false
 	$Sprite.rotation_degrees = BOW_ROTATION
 	$Drawn.rotation_degrees = BOW_ROTATION
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	_is_attacking = false
+	visible = false
 
 
 func update_type(new_type):
@@ -31,3 +40,11 @@ func update_type(new_type):
 	elif type == "Iron":
 		$Sprite.texture = load(IRON_PATH)
 		damage = IRON_DAMAGE
+
+
+func attack():
+	if _is_attacking:
+		return
+	visible = true
+	$AnimationPlayer.play("Attack")
+	_is_attacking = true
