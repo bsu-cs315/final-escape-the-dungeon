@@ -1,10 +1,10 @@
 extends Area2D
 
 
-const BRAND := "Shortsword"
-const NORMAL_PATH := "res://Assets/Swords/Shortsword.png"
-const IRON_PATH := "res://Assets/Swords/Iron Shortsword.png"
-const GOLD_PATH := "res://Assets/Swords/Golden Shortsword.png"
+const BRAND := "Longsword"
+const NORMAL_PATH := "res://Assets/Swords/Longsword.png"
+const IRON_PATH := "res://Assets/Swords/Iron Longsword.png"
+const GOLD_PATH := "res://Assets/Swords/Golden Longsword.png"
 const NORMAL_DAMAGE := 1
 const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
@@ -28,7 +28,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	visible = false
 
 
-func update__type(new_type):
+func update_type(new_type):
 	type = new_type
 	if type == "Golden":
 		$Sprite.texture = load(GOLD_PATH)
