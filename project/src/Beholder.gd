@@ -13,13 +13,14 @@ var velocity := Vector2()
 
 
 var _is_hurt := false
+var _is_attacking := false
 
 
 onready var player := get_node("../Player")
 
 
 func _process(_delta):
-	if _is_hurt:
+	if _is_hurt or _is_attacking:
 		velocity = Vector2.ZERO
 	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
 		if player.position.x > position.x:
@@ -50,8 +51,10 @@ func _on_Area2D_area_entered(area):
 
 
 func attack():
-	$AnimatedSprite.play("attack")
-	player.take_damage(BEHOLDER_ATTACK_DAMAGE)
+	if not _is_attacking:
+		_is_attacking = true
+		$AnimatedSprite.play("attack")
+		player.take_damage(BEHOLDER_ATTACK_DAMAGE)
 
 
 func take_damage(damage):
@@ -69,6 +72,7 @@ func _on_AnimatedSprite_animation_finished():
 	else:
 		$AnimatedSprite.play("default")
 		_is_hurt = false
+		_is_attacking = false
 
 
 func _on_Area2D_body_entered(body):
