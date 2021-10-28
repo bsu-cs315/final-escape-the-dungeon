@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Iron Longsword.png-f3c67986d224897df5f5fbbbadf076ab.stex"
+path="res://.import/Iron Longsword.png-c1905cca2d7fc2124f9e9b452d749d76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Swords/Iron Longsword.png"
-dest_files=[ "res://.import/Iron Longsword.png-f3c67986d224897df5f5fbbbadf076ab.stex" ]
+source_file="res://assets/Swords/Iron Longsword.png"
+dest_files=[ "res://.import/Iron Longsword.png-c1905cca2d7fc2124f9e9b452d749d76.stex" ]
 
 [params]
 
