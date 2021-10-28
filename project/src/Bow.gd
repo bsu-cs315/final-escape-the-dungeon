@@ -16,27 +16,22 @@ const BOW_ROTATION := -45
 
 export var position_extension := 0
 export var damage := NORMAL_DAMAGE
+export var weapon_type := "Bow"
 
 
 var type := "Normal"
-
-
-var _is_attacking := false
+var direction := "left"
 
 
 func _ready():
-	visible = false
 	$Sprite.rotation_degrees = BOW_ROTATION
 	$Drawn.rotation_degrees = BOW_ROTATION
 
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	var arrow = load("res://src/Arrow.tscn").instance()
-	arrow.rotation = rotation
-	arrow.damage = damage
-	arrow.fire()
-	_is_attacking = false
-	visible = false
+	get_parent().spawn_arrow(damage)
+	get_parent().remove_weapon()
+	queue_free()
 
 
 func update_type(new_type):
@@ -49,9 +44,6 @@ func update_type(new_type):
 		damage = IRON_DAMAGE
 
 
-func attack():
-	if _is_attacking:
-		return
-	visible = true
+func attack(facing):
+	direction = facing
 	$AnimationPlayer.play("Attack")
-	_is_attacking = true

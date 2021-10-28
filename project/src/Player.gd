@@ -12,7 +12,7 @@ export var speed := 150
 export var health := 5
 
 
-var primary_weapon := load("res://src/Longsword.tscn")
+var primary_weapon := load("res://src/Bow.tscn")
 var current_weapon
 var active := true
 var facing := "left"
@@ -83,7 +83,10 @@ func attack():
 		current_weapon = primary_weapon.instance()
 		call_deferred("add_child", current_weapon)
 		position_weapon()
-		current_weapon.attack()
+		if current_weapon.weapon_type == "Bow":
+			current_weapon.attack(facing)
+		else:
+			current_weapon.attack()
 		$AnimatedSprite.play("attack")
 
 
@@ -113,3 +116,10 @@ func remove_weapon():
 
 func _on_AnimatedSprite_animation_finished():
 	_is_hurt = false
+
+
+func spawn_arrow(damage):
+	var arrow = load("res://src/Arrow.tscn").instance()
+	get_parent().call_deferred("add_child", arrow)
+	arrow.damage = damage
+	arrow.fire(position, facing)
