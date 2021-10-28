@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/angry.png-2b5006e6c9d94e8809f97a10224e4199.stex"
+path="res://.import/hurt_1.png-6ff7e0c2da4f2da9573a1ac015ee0f25.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Beholder/angry.png"
-dest_files=[ "res://.import/angry.png-2b5006e6c9d94e8809f97a10224e4199.stex" ]
+source_file="res://Assets/Enemies/Fuzz/hurt_1.png"
+dest_files=[ "res://.import/hurt_1.png-6ff7e0c2da4f2da9573a1ac015ee0f25.stex" ]
 
 [params]
 

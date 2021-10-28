@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Shortsword.png-11e3c1ec895c721c11ef27bf29fffc80.stex"
+path="res://.import/Shortsword.png-54388387f8849629c51c31471b676b91.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Swords/Shortsword.png"
-dest_files=[ "res://.import/Shortsword.png-11e3c1ec895c721c11ef27bf29fffc80.stex" ]
+source_file="res://Assets/Swords/Shortsword.png"
+dest_files=[ "res://.import/Shortsword.png-54388387f8849629c51c31471b676b91.stex" ]
 
 [params]
 

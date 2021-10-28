@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Drawn Gold Bow.png-5bf52168daa7bf0f890c2e70338e82ee.stex"
+path="res://.import/Drawn Gold Bow.png-b46051c7d9fa5dff592ae57cd80695af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bows/Drawn Gold Bow.png"
-dest_files=[ "res://.import/Drawn Gold Bow.png-5bf52168daa7bf0f890c2e70338e82ee.stex" ]
+source_file="res://Assets/Bows/Drawn Gold Bow.png"
+dest_files=[ "res://.import/Drawn Gold Bow.png-b46051c7d9fa5dff592ae57cd80695af.stex" ]
 
 [params]
 
