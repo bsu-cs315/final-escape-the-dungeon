@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-const SPEED := 500
+const SPEED := 1000
 const DISTANCE := Vector2(500,500)
 
 
@@ -33,6 +33,10 @@ func _process(delta):
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite.play("default")
+	if velocity.x < 0:
+		$AnimatedSprite.scale.x = 1
+	elif velocity.x > 0:
+		$AnimatedSprite.scale.x = -1
 
 
 func _physics_process(delta):

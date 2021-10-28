@@ -23,8 +23,8 @@ func _physics_process(delta):
 		$AnimatedSprite.play("idle")
 		
 	if direction.x < 0:
-		$AnimatedSprite.scale.x = -1
-	elif direction.x > 0:
 		$AnimatedSprite.scale.x = 1
+	elif direction.x > 0:
+		$AnimatedSprite.scale.x = -1
 	
 	move_and_collide(direction * speed * delta)
