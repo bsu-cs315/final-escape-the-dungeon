@@ -5,7 +5,7 @@ const SPEED := 500
 const DISTANCE := Vector2(500,500)
 
 
-export var health := 1
+export var health := 3
 
 
 var velocity := Vector2()
@@ -55,12 +55,13 @@ func take_damage(damage):
 	if health <= 0:
 		$AnimatedSprite.play("killed")
 	else:
-		$AnimatedSprite.play("hurt")
+		if health == 1:
+			$AnimatedSprite.play("hurt 2") 
+		else:
+			$AnimatedSprite.play("hurt")
 		_is_hurt = true
 
 
 func _on_AnimatedSprite_animation_finished():
 	if health <= 0:
 		queue_free()
-	else:
-		_is_hurt = false
