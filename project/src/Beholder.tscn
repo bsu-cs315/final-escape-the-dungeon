@@ -46,6 +46,7 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.75, 0 )
+scale = Vector2( 0.9, 0.9 )
 shape = SubResource( 3 )
 
 [node name="WeaponPos" type="Position2D" parent="."]
@@ -60,7 +61,7 @@ shape = SubResource( 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walk"
-frame = 2
+frame = 3
 playing = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

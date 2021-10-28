@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-const SPEED := 1250
+const SPEED := 1750
 const DISTANCE := Vector2(500,500)
 const FUZZ_ATTACK_DAMAGE = 1
 
@@ -69,7 +69,9 @@ func take_damage(damage):
 func _on_AnimatedSprite_animation_finished():
 	if health <= 0:
 		queue_free()
-	_is_hurt = false
+	else:
+		$AnimatedSprite.play("default")
+		_is_hurt = false
 
 
 func _on_Area2D_body_entered(body):

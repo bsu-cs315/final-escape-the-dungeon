@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-const SPEED := 1000
+const SPEED := 1250
 const DISTANCE := Vector2(500,500)
 const BEHOLDER_ATTACK_DAMAGE = 2
 
@@ -45,7 +45,7 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	if area == get_node("../Arrow") or area == get_node("../Shortsword") or area == get_node("../Longsword"):
+	if area == player.get_current_weapon():
 		take_damage(area.damage)
 
 

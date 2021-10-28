@@ -8,6 +8,7 @@ export var health := 5
 var current_weapon = load("res://src/Shortsword.tscn").instance()
 var active := true
 
+
 func _physics_process(delta):
 	var direction := Vector2(0,0)
 	if Input.is_action_pressed("move_up"):
