@@ -12,7 +12,7 @@ export var speed := 150
 export var health := 5
 
 
-var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon := load("res://src/Longsword.tscn")
 var current_weapon
 var active := true
 var facing := "left"
@@ -80,15 +80,19 @@ func attack():
 func position_weapon():
 	if facing == "up":
 		current_weapon.position = $AttackUp.position
+		current_weapon.position.y -= current_weapon.position_extension
 		current_weapon.rotation_degrees += UP_ROTATION
 	elif facing == "down":
 		current_weapon.position = $AttackDown.position
+		current_weapon.position.y += current_weapon.position_extension
 		current_weapon.rotation_degrees += DOWN_ROTATION
 	elif facing == "left":
 		current_weapon.position = $AttackLeft.position
+		current_weapon.position.x -= current_weapon.position_extension
 		current_weapon.rotation_degrees += LEFT_ROTATION
 	elif facing == "right":
 		current_weapon.position = $AttackRight.position
+		current_weapon.position.x += current_weapon.position_extension
 		current_weapon.rotation_degrees += RIGHT_ROTATION
 
 

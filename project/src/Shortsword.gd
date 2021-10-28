@@ -10,6 +10,7 @@ const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
 
 
+export var position_extension := 0
 export var damage := NORMAL_DAMAGE
 
 

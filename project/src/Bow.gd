@@ -14,6 +14,7 @@ const GOLD_DAMAGE := 3
 const BOW_ROTATION := -45
 
 
+export var position_extension := 0
 export var damage := NORMAL_DAMAGE
 
 
