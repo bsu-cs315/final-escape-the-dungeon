@@ -66,7 +66,7 @@ func take_damage(damage):
 
 
 func get_current_weapon():
-	return primary_weapon
+	return current_weapon
 
 
 func attack():

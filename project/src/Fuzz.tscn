@@ -36,7 +36,7 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "killed",
-"speed": 1.0
+"speed": 0.5
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -64,6 +64,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "walk"
+frame = 1
 playing = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

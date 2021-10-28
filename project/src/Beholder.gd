@@ -51,7 +51,7 @@ func _on_Area2D_area_entered(area):
 
 
 func attack():
-	if not _is_attacking:
+	if not _is_attacking and not _is_hurt:
 		_is_attacking = true
 		$AnimatedSprite.play("attack")
 		player.take_damage(BEHOLDER_ATTACK_DAMAGE)
@@ -63,14 +63,13 @@ func take_damage(damage):
 		$AnimatedSprite.play("killed")
 	else:
 		$AnimatedSprite.play("hurt")
-		_is_hurt = true
+	_is_hurt = true
 
 
 func _on_AnimatedSprite_animation_finished():
 	if health <= 0:
 		queue_free()
 	else:
-		$AnimatedSprite.play("default")
 		_is_hurt = false
 		_is_attacking = false
 
