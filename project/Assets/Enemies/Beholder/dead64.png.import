@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dead64.png-5b15a4f67c2785b68627e4e4464a8923.stex"
+path="res://.import/dead64.png-fd1c14e914e659ca28bb22b9fdecd14d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Beholder/dead64.png"
-dest_files=[ "res://.import/dead64.png-5b15a4f67c2785b68627e4e4464a8923.stex" ]
+source_file="res://assets/Enemies/Beholder/dead64.png"
+dest_files=[ "res://.import/dead64.png-fd1c14e914e659ca28bb22b9fdecd14d.stex" ]
 
 [params]
 

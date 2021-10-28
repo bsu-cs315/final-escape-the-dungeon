@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/walk_1.png-2f63154c28cd1258c9f795139bc485d4.stex"
+path="res://.import/walk_1.png-f4b904e3895c9eed9a0aff0d6d8409f1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Fuzz/walk_1.png"
-dest_files=[ "res://.import/walk_1.png-2f63154c28cd1258c9f795139bc485d4.stex" ]
+source_file="res://assets/Enemies/Fuzz/walk_1.png"
+dest_files=[ "res://.import/walk_1.png-f4b904e3895c9eed9a0aff0d6d8409f1.stex" ]
 
 [params]
 
