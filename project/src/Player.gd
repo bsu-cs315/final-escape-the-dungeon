@@ -19,6 +19,7 @@ var facing := "left"
 
 
 var _is_hurt := false
+var _is_attacking := false
 
 
 func _physics_process(delta):
@@ -48,10 +49,11 @@ func _physics_process(delta):
 		
 	direction = direction.normalized()
 	
-	if direction.length() > 0:
-		$AnimatedSprite.play("walk")
-	else:
-		$AnimatedSprite.play("idle")
+	if not _is_hurt and not _is_attacking:
+		if direction.length() > 0:
+			$AnimatedSprite.play("walk")
+		else:
+			$AnimatedSprite.play("idle")
 		
 	if direction.x < 0:
 		$AnimatedSprite.scale.x = 1
@@ -62,7 +64,13 @@ func _physics_process(delta):
 
 
 func take_damage(damage):
-	health -= damage
+	if not _is_hurt:
+		health -= damage
+		_is_hurt = true
+		if health <= 0:
+			$AnimatedSprite.play("killed")
+		else:
+			$AnimatedSprite.play("hurt")
 
 
 func get_current_weapon():
@@ -71,10 +79,12 @@ func get_current_weapon():
 
 func attack():
 	if not current_weapon:
+		_is_attacking = true
 		current_weapon = primary_weapon.instance()
 		call_deferred("add_child", current_weapon)
 		position_weapon()
 		current_weapon.attack()
+		$AnimatedSprite.play("attack")
 
 
 func position_weapon():
@@ -98,3 +108,8 @@ func position_weapon():
 
 func remove_weapon():
 	current_weapon = null
+	_is_attacking = false
+
+
+func _on_AnimatedSprite_animation_finished():
+	_is_hurt = false
