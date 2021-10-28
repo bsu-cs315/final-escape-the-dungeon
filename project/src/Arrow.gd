@@ -6,7 +6,7 @@ const UP_ROTATION := 0
 const DOWN_ROTATION := 180
 const LEFT_ROTATION := -90
 const RIGHT_ROTATION := 90
-const SPEED := 250
+const SPEED := 500
 
 
 export var damage := 1
