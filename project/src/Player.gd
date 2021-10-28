@@ -1,13 +1,21 @@
 extends KinematicBody2D
 
 
+const LEFT_ROTATION = -90
+const RIGHT_ROTATION = 90
+const UP_ROTATION = 0
+const DOWN_ROTATION = 180
+const CENTER_POINT = Vector2(468,300)
+
+
 export var speed := 150
 export var health := 5
 
 
-var primary_weapon = load("res://src/Shortsword.tscn")
+var primary_weapon := load("res://src/Shortsword.tscn")
 var current_weapon
 var active := true
+var facing := "left"
 
 
 var _is_attacking := false
@@ -26,6 +34,18 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 		
+	var mouse_pos = get_viewport().get_mouse_position()
+	var x = mouse_pos.x - CENTER_POINT.x
+	var y = mouse_pos.y - CENTER_POINT.y
+	if x < 0 and abs(x) > abs(y * 1.5):
+		facing = "left"
+	elif x >= 0 and abs(x) > abs(y * 1.5):
+		facing = "right"
+	elif y < 0 and abs(y * 1.5) > abs(x):
+		facing = "up"
+	else:
+		facing = "down"
+		
 	direction = direction.normalized()
 	
 	if direction.length() > 0:
@@ -39,7 +59,6 @@ func _physics_process(delta):
 		$AnimatedSprite.scale.x = -1
 	
 	var _ignored = move_and_collide(direction * speed * delta)
-	print(health)
 
 
 func take_damage(damage):
@@ -59,7 +78,18 @@ func attack():
 
 
 func position_weapon():
-	pass
+	if facing == "up":
+		current_weapon.position = $AttackUp.position
+		current_weapon.rotation_degrees += UP_ROTATION
+	elif facing == "down":
+		current_weapon.position = $AttackDown.position
+		current_weapon.rotation_degrees += DOWN_ROTATION
+	elif facing == "left":
+		current_weapon.position = $AttackLeft.position
+		current_weapon.rotation_degrees += LEFT_ROTATION
+	elif facing == "right":
+		current_weapon.position = $AttackRight.position
+		current_weapon.rotation_degrees += RIGHT_ROTATION
 
 
 func remove_weapon():
