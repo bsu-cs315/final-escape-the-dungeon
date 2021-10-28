@@ -16,16 +16,9 @@ export var damage := NORMAL_DAMAGE
 var type := "Normal"
 
 
-var _is_attacking := false
-
-
-func _ready():
-	visible = false
-
-
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	_is_attacking = false
-	visible = false
+	get_parent().remove_weapon()
+	queue_free()
 
 
 func update__type(new_type):
@@ -39,8 +32,4 @@ func update__type(new_type):
 
 
 func attack():
-	if _is_attacking:
-		return
-	visible = true
 	$AnimationPlayer.play("Attack")
-	_is_attacking = true
