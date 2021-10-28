@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dead.png-d8834d9c4ffe4892792bee8db8453638.stex"
+path="res://.import/dead.png-67b8c868c145a0fbed4f008d23cad210.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Beholder/dead.png"
-dest_files=[ "res://.import/dead.png-d8834d9c4ffe4892792bee8db8453638.stex" ]
+source_file="res://assets/Enemies/Beholder/dead.png"
+dest_files=[ "res://.import/dead.png-67b8c868c145a0fbed4f008d23cad210.stex" ]
 
 [params]
 

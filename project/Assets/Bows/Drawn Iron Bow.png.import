@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Drawn Iron Bow.png-dd4a7a3dfbae963b95ece469e761dbc5.stex"
+path="res://.import/Drawn Iron Bow.png-8ef94bc714c8b71b89563784a6743cae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bows/Drawn Iron Bow.png"
-dest_files=[ "res://.import/Drawn Iron Bow.png-dd4a7a3dfbae963b95ece469e761dbc5.stex" ]
+source_file="res://assets/Bows/Drawn Iron Bow.png"
+dest_files=[ "res://.import/Drawn Iron Bow.png-8ef94bc714c8b71b89563784a6743cae.stex" ]
 
 [params]
 
