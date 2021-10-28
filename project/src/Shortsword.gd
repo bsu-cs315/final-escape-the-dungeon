@@ -1,7 +1,6 @@
 extends Area2D
 
 
-const BRAND := "Shortsword"
 const NORMAL_PATH := "res://Assets/Swords/Shortsword.png"
 const IRON_PATH := "res://Assets/Swords/Iron Shortsword.png"
 const GOLD_PATH := "res://Assets/Swords/Golden Shortsword.png"
@@ -10,22 +9,17 @@ const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
 
 
+export var position_extension := 0
 export var damage := NORMAL_DAMAGE
+export var weapon_type = "Shortsword"
 
 
 var type := "Normal"
 
 
-var _is_attacking := false
-
-
-func _ready():
-	visible = false
-
-
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	_is_attacking = false
-	visible = false
+	get_parent().remove_weapon()
+	queue_free()
 
 
 func update__type(new_type):
@@ -39,8 +33,4 @@ func update__type(new_type):
 
 
 func attack():
-	if _is_attacking:
-		return
-	visible = true
 	$AnimationPlayer.play("Attack")
-	_is_attacking = true

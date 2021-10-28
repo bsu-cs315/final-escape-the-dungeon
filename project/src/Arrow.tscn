@@ -8,6 +8,7 @@ radius = 14.75
 height = 40.5
 
 [node name="Arrow" type="Area2D"]
+z_index = -5
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,5 +19,4 @@ shape = SubResource( 1 )
 rotation = -0.785398
 texture = ExtResource( 1 )
 
-[connection signal="area_exited" from="." to="." method="_on_Arrow_collision"]
-[connection signal="body_entered" from="." to="." method="_on_Arrow_collision"]
+[connection signal="body_entered" from="." to="." method="_on_Arrow_body_entered"]
