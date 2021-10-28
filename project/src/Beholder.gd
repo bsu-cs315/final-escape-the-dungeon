@@ -58,12 +58,13 @@ func attack():
 
 
 func take_damage(damage):
-	health -= damage
-	if health <= 0:
-		$AnimatedSprite.play("killed")
-	else:
-		$AnimatedSprite.play("hurt")
-	_is_hurt = true
+	if not _is_hurt:
+		health -= damage
+		if health <= 0:
+			$AnimatedSprite.play("killed")
+		else:
+			$AnimatedSprite.play("hurt")
+		_is_hurt = true
 
 
 func _on_AnimatedSprite_animation_finished():
