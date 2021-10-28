@@ -3,6 +3,7 @@ extends KinematicBody2D
 
 const SPEED := 1000
 const DISTANCE := Vector2(500,500)
+const BEHOLDER_ATTACK_DAMAGE = 2
 
 
 export var health := 1
@@ -17,7 +18,7 @@ var _is_hurt := false
 onready var player := get_node("../Player")
 
 
-func _process(delta):
+func _process(_delta):
 	if _is_hurt:
 		velocity = Vector2.ZERO
 	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
@@ -44,14 +45,13 @@ func _physics_process(delta):
 
 
 func _on_Area2D_area_entered(area):
-	#Check if player's weapon OR arrow
-	#If so, find damage of attack
-	#Take appropriate health with take_damage(), kill if necessary.
-	pass # Replace with function body.
+	if area == get_node("../Arrow") or area == get_node("../Shortsword") or area == get_node("../Longsword"):
+		take_damage(area.damage)
 
 
 func attack():
-	pass
+	$AnimatedSprite.play("attack")
+	player.take_damage(BEHOLDER_ATTACK_DAMAGE)
 
 
 func take_damage(damage):
@@ -67,4 +67,10 @@ func _on_AnimatedSprite_animation_finished():
 	if health <= 0:
 		queue_free()
 	else:
+		$AnimatedSprite.play("default")
 		_is_hurt = false
+
+
+func _on_Area2D_body_entered(body):
+	if body == player:
+		attack()

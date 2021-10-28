@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
-export var speed := 150
 
+export var speed := 150
+export var health := 5
+
+
+var current_weapon = load("res://src/Shortsword.tscn").instance()
 var active := true
 
 func _physics_process(delta):
@@ -27,4 +31,13 @@ func _physics_process(delta):
 	elif direction.x > 0:
 		$AnimatedSprite.scale.x = -1
 	
-	move_and_collide(direction * speed * delta)
+	var _ignored = move_and_collide(direction * speed * delta)
+	print(health)
+
+
+func take_damage(damage):
+	health -= damage
+
+
+func get_current_weapon():
+	return current_weapon
