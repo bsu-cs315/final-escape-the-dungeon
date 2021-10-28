@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bow.png-55b2f1b0d7b77b24958537b9581d82b9.stex"
+path="res://.import/dead64.png-fd1c14e914e659ca28bb22b9fdecd14d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bows/Bow.png"
-dest_files=[ "res://.import/Bow.png-55b2f1b0d7b77b24958537b9581d82b9.stex" ]
+source_file="res://assets/Enemies/Beholder/dead64.png"
+dest_files=[ "res://.import/dead64.png-fd1c14e914e659ca28bb22b9fdecd14d.stex" ]
 
 [params]
 

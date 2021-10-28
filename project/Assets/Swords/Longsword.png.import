@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Longsword.png-9afe9aa343e8d5eee4baa16717a4d908.stex"
+path="res://.import/Longsword.png-fa5908dae6a137cd5d22bb4f9756c396.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Swords/Longsword.png"
-dest_files=[ "res://.import/Longsword.png-9afe9aa343e8d5eee4baa16717a4d908.stex" ]
+source_file="res://assets/Swords/Longsword.png"
+dest_files=[ "res://.import/Longsword.png-fa5908dae6a137cd5d22bb4f9756c396.stex" ]
 
 [params]
 
