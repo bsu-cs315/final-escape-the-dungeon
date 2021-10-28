@@ -32,6 +32,7 @@ func _ready():
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	var arrow = load("res://src/Arrow.tscn").instance()
 	arrow.rotation = rotation
+	arrow.damage = damage
 	arrow.fire()
 	_is_attacking = false
 	visible = false
