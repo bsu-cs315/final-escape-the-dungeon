@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/walk.png" type="Texture" id=2]
@@ -6,14 +6,11 @@
 [ext_resource path="res://Assets/Player/hit.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Player/attack.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Player/killed.png" type="Texture" id=6]
+[ext_resource path="res://assets/HUD/blue_button01.png" type="Texture" id=7]
+[ext_resource path="res://assets/HUD/grey_button00.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "attack",
@@ -33,6 +30,11 @@ animations = [ {
 "loop": true,
 "name": "killed",
 "speed": 0.5
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -65,5 +67,38 @@ position = Vector2( 0, -30 )
 
 [node name="AttackDown" type="Position2D" parent="."]
 position = Vector2( 0, 30 )
+
+[node name="HUD" type="Control" parent="."]
+margin_left = -255.805
+margin_top = -148.488
+margin_right = 256.195
+margin_bottom = -69.4882
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthLabel" type="Label" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -103.926
+margin_top = 15.7387
+margin_right = -57.9257
+margin_bottom = 29.7387
+text = "Health:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeBar" type="TextureProgress" parent="HUD"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -95.0
+margin_right = 95.0
+margin_bottom = 45.0
+texture_under = ExtResource( 8 )
+texture_progress = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

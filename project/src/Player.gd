@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal health_changed
+
+onready var bar = $HUD/LifeBar
 
 const LEFT_ROTATION = -90
 const RIGHT_ROTATION = 90
@@ -9,6 +12,7 @@ const CENTER_POINT = Vector2(468,300)
 
 
 export var speed := 150
+export var max_health := 5
 export var health := 5
 
 
@@ -20,6 +24,10 @@ var facing := "left"
 
 var _is_hurt := false
 var _is_attacking := false
+
+func _ready():
+	bar.max_value = max_health
+	bar.value = max_health
 
 
 func _physics_process(delta):
@@ -66,6 +74,8 @@ func _physics_process(delta):
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
+		print(health)
+		bar.value = health
 		_is_hurt = true
 		if health <= 0:
 			$AnimatedSprite.play("killed")
