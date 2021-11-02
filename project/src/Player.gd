@@ -6,6 +6,7 @@ const RIGHT_ROTATION = 90
 const UP_ROTATION = 0
 const DOWN_ROTATION = 180
 const CENTER_POINT = Vector2(468,300)
+const WALL_COLLISION = Vector2(0,0)
 
 
 export var speed := 150
@@ -22,7 +23,7 @@ var _is_hurt := false
 var _is_attacking := false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction := Vector2(0,0)
 	if Input.is_action_just_pressed("attack"):
 		attack()
@@ -60,7 +61,7 @@ func _physics_process(delta):
 	elif direction.x > 0:
 		$AnimatedSprite.scale.x = -1
 	
-	var _ignored = move_and_collide(direction * speed * delta)
+	var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
 
 
 func take_damage(damage):
