@@ -12,7 +12,7 @@ export var speed := 150
 export var health := 5
 
 
-var primary_weapon := load("res://src/Bow.tscn")
+var primary_weapon := load("res://src/Shortsword.tscn")
 var current_weapon
 var active := true
 var facing := "left"

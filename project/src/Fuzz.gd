@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 
 const SPEED := 1750
-const DISTANCE := Vector2(500,500)
-const FUZZ_ATTACK_DAMAGE = 1
+const DISTANCE := Vector2(5000,5000)
+const FUZZ_ATTACK_DAMAGE := 1
 
 
 export var health := 3
