@@ -19,11 +19,6 @@ animations = [ {
 "name": "attack",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
@@ -33,6 +28,11 @@ animations = [ {
 "loop": true,
 "name": "killed",
 "speed": 0.5
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 1.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -40,6 +40,7 @@ radius = 28.9106
 height = 13.416
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

@@ -62,5 +62,6 @@ func _on_Timer_timeout():
 
 func _on_Arrow_body_entered(body):
 	if body != get_parent().get_node("Player"):
-		body.take_damage(damage)
+		if not body is TileMap:
+			body.take_damage(damage)
 		queue_free()
