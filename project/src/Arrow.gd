@@ -42,6 +42,13 @@ func get_launcher():
 	return _launcher
 
 
+func spawn_particles():
+	var particles = load("res://src/ArrowParticles.tscn").instance()
+	get_parent().call_deferred("add_child", particles)
+	particles.emitting = true
+	particles.position = position
+
+
 func fire(bow_pos, direction):
 	position = bow_pos
 	pos = bow_pos
@@ -64,4 +71,5 @@ func _on_Arrow_body_entered(body):
 	if body != get_parent().get_node("Player"):
 		if not body is TileMap:
 			body.take_damage(damage)
+		spawn_particles()
 		queue_free()
