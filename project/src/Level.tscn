@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/Level/ceiling_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/Level/ceiling_2.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://src/Fuzz.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/Player.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/Beholder.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/Level/backgroundconverted.ogg" type="AudioStream" id=21]
 
 [sub_resource type="TileSet" id=1]
 0/name = "floor_4.png 0"
@@ -475,12 +476,10 @@ position = Vector2( 1659.14, 3027.29 )
 [node name="Fuzz3" parent="." instance=ExtResource( 18 )]
 position = Vector2( 956.916, 1784.36 )
 rotation = -0.00252581
-scale = Vector2( 1, 1 )
 
 [node name="Fuzz4" parent="." instance=ExtResource( 18 )]
 position = Vector2( 1084.05, 1708.07 )
 rotation = -0.00252581
-scale = Vector2( 1, 1 )
 
 [node name="Fuzz5" parent="." instance=ExtResource( 18 )]
 position = Vector2( 952.678, 1608.48 )
@@ -514,3 +513,7 @@ position = Vector2( 2648.35, 361.2 )
 
 [node name="Beholder7" parent="." instance=ExtResource( 20 )]
 position = Vector2( 2189.31, 396.876 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+autoplay = true

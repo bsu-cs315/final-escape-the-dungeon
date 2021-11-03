@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Fuzz.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Enemies/Fuzz/hurt_2.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Enemies/Fuzz/walk_1.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Enemies/Fuzz/attack.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Enemies/Fuzz/hurt_1.png" type="Texture" id=7]
+[ext_resource path="res://assets/Enemies/deathMonsterconverted.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 33.093
@@ -23,11 +24,6 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "attack",
-"speed": 0.5
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
@@ -38,15 +34,20 @@ animations = [ {
 "name": "killed",
 "speed": 0.5
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "hurt 2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "hurt",
-"speed": 1.0
+"name": "attack",
+"speed": 0.5
 } ]
 
 [node name="Fuzz" type="KinematicBody2D"]
@@ -70,6 +71,9 @@ shape = SubResource( 2 )
 frames = SubResource( 3 )
 animation = "walk"
 playing = true
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
