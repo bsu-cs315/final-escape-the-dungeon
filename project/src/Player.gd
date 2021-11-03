@@ -75,8 +75,6 @@ func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
 		bar.value = health
-		print("health: " + str(health))
-		print("bar value: " + str(bar.value))
 		_is_hurt = true
 		if health <= 0:
 			$AnimatedSprite.play("killed")
