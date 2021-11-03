@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal health_changed
-
 onready var bar = $HUD/LifeBar
 
 const LEFT_ROTATION = -90
@@ -15,7 +13,6 @@ export var speed := 150
 export var max_health := 5
 export var health := 5
 
-
 var primary_weapon := load("res://src/Shortsword.tscn")
 var current_weapon
 var active := true
@@ -27,8 +24,9 @@ var _is_attacking := false
 
 func _ready():
 	bar.max_value = max_health
-	bar.value = max_health
-
+	bar.min_value = 0
+	bar.value = health
+	print(health)
 
 func _physics_process(delta):
 	var direction := Vector2(0,0)
@@ -74,11 +72,13 @@ func _physics_process(delta):
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
-		print(health)
 		bar.value = health
+		print("health: " + str(health))
+		print("bar value: " + str(bar.value))
 		_is_hurt = true
 		if health <= 0:
 			$AnimatedSprite.play("killed")
+			killed()
 		else:
 			$AnimatedSprite.play("hurt")
 
@@ -133,3 +133,6 @@ func spawn_arrow(damage):
 	get_parent().call_deferred("add_child", arrow)
 	arrow.damage = damage
 	arrow.fire(position, facing)
+	
+func killed():
+	var _ignored = get_tree().change_scene("res://src/EndScreen.tscn")
