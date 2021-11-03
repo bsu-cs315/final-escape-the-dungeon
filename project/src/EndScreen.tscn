@@ -35,20 +35,22 @@ __meta__ = {
 
 [node name="EndMessage" type="Label" parent="HUD"]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-margin_left = -20.0
-margin_top = 167.944
-margin_right = 63.0
-margin_bottom = 181.944
-text = "End Message"
+anchor_bottom = 0.5
+margin_left = -28.5
+margin_top = -7.0
+margin_right = 28.5
+margin_bottom = 7.0
+text = "You Died"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="RestartButton" type="Button" parent="HUD"]
-margin_left = 458.227
+margin_left = 439.998
 margin_top = 357.431
-margin_right = 610.227
+margin_right = 591.998
 margin_bottom = 399.431
 custom_styles/hover = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
