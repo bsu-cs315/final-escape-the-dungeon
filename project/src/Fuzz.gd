@@ -62,7 +62,11 @@ func take_damage(damage):
 		health -= damage
 		if health <= 0:
 			$AnimatedSprite.play("killed")
+			$sound.stream = load("res://assets/Enemies/deathMonsterconverted.wav")
+			$sound.play()
 		else:
+			$sound.stream = load("res://assets/Enemies/hurtMonstertrimmed.wav")
+			$sound.play()
 			if health == 1:
 				$AnimatedSprite.play("hurt 2") 
 			else:
