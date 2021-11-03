@@ -1,7 +1,6 @@
 extends Area2D
 
 
-const BRAND := "Bow"
 const NORMAL_PATH := "res://Assets/Bows/Bow.png"
 const NORMAL_DRAWN_PATH := "res://Assets/Bows/Drawn Bow.png"
 const IRON_PATH := "res://Assets/Bows/Iron Bow.png"

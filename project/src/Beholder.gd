@@ -50,6 +50,19 @@ func _on_Area2D_area_entered(area):
 		take_damage(area.damage)
 
 
+func _on_AnimatedSprite_animation_finished():
+	if health <= 0:
+		queue_free()
+	else:
+		_is_hurt = false
+		_is_attacking = false
+
+
+func _on_Area2D_body_entered(body):
+	if body == player:
+		attack()
+
+
 func attack():
 	if not _is_attacking and not _is_hurt:
 		_is_attacking = true
@@ -70,16 +83,3 @@ func take_damage(damage):
 			$sound.stream = load("res://assets/Enemies/hurtMonstertrimmed.wav")
 			$sound.play()
 		_is_hurt = true
-
-
-func _on_AnimatedSprite_animation_finished():
-	if health <= 0:
-		queue_free()
-	else:
-		_is_hurt = false
-		_is_attacking = false
-
-
-func _on_Area2D_body_entered(body):
-	if body == player:
-		attack()
