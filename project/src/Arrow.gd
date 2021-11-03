@@ -13,11 +13,13 @@ export var damage := 1
 export var weapon_type := "Arrow"
 
 
-var _launcher := "Player"
-var facing = "left"
+var facing := "left"
 var pos := Vector2.ZERO
 var x := 0
 var y := 0
+
+
+var _launcher := "Player"
 
 
 func _process(delta):
@@ -32,6 +34,18 @@ func _process(delta):
 	pos.x += x * delta
 	pos.y += y * delta
 	position = pos
+
+
+func _on_Timer_timeout():
+	queue_free()
+
+
+func _on_Arrow_body_entered(body):
+	if body != get_parent().get_node("Player"):
+		if not body is TileMap:
+			body.take_damage(damage)
+		spawn_particles()
+		queue_free()
 
 
 func set_launcher(entity):
@@ -61,15 +75,3 @@ func fire(bow_pos, direction):
 		rotation_degrees += UP_ROTATION
 	elif direction == "left":
 		rotation_degrees += LEFT_ROTATION
-
-
-func _on_Timer_timeout():
-	queue_free()
-
-
-func _on_Arrow_body_entered(body):
-	if body != get_parent().get_node("Player"):
-		if not body is TileMap:
-			body.take_damage(damage)
-		spawn_particles()
-		queue_free()

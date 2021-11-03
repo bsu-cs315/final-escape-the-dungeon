@@ -22,7 +22,7 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 	queue_free()
 
 
-func update__type(new_type):
+func update_type(new_type):
 	type = new_type
 	if type == "Golden":
 		$Sprite.texture = load(GOLD_PATH)
