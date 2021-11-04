@@ -27,7 +27,6 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
-	print(health)
 
 func _physics_process(_delta):
 	if active:
