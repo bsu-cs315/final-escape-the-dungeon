@@ -1,18 +1,18 @@
 extends KinematicBody2D
 
-onready var bar = $HUD/LifeBar
 
-const LEFT_ROTATION = -90
-const RIGHT_ROTATION = 90
-const UP_ROTATION = 0
-const DOWN_ROTATION = 180
-const CENTER_POINT = Vector2(468,300)
-const WALL_COLLISION = Vector2(0,0)
+const LEFT_ROTATION := -90
+const RIGHT_ROTATION := 90
+const UP_ROTATION := 0
+const DOWN_ROTATION := 180
+const CENTER_POINT := Vector2(468,300)
+const WALL_COLLISION := Vector2(0,0)
 
 
 export var speed := 150
 export var max_health := 5
 export var health := 5
+
 
 var primary_weapon := load("res://src/Shortsword.tscn")
 var current_weapon
@@ -23,11 +23,16 @@ var facing := "left"
 var _is_hurt := false
 var _is_attacking := false
 
+
+onready var bar = $HUD/LifeBar
+
+
 func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
 	print(health)
+
 
 func _physics_process(_delta):
 	if active:
@@ -69,6 +74,14 @@ func _physics_process(_delta):
 			$AnimatedSprite.scale.x = -1
 		
 		var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
+
+
+func _on_RestartButton_pressed():
+	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
+
+
+func _on_AnimatedSprite_animation_finished():
+	_is_hurt = false
 
 
 func take_damage(damage):
@@ -124,24 +137,19 @@ func remove_weapon():
 	_is_attacking = false
 
 
-func _on_AnimatedSprite_animation_finished():
-	_is_hurt = false
-
-
 func spawn_arrow(damage):
 	var arrow = load("res://src/Arrow.tscn").instance()
 	get_parent().call_deferred("add_child", arrow)
 	arrow.damage = damage
 	arrow.fire(position, facing)
-	
+
+
 func killed():
 	active = false
 	$HUD/EndMessage.text = "You Died"
 	$HUD/RestartButton.visible = true
 	$HUD/EndMessage.visible = true
-	
+
+
 func win():
 	pass
-
-func _on_RestartButton_pressed():
-	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
