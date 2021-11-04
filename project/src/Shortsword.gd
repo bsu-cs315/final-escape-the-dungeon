@@ -1,9 +1,9 @@
 extends Area2D
 
 
-const NORMAL_PATH := "res://Assets/Swords/Shortsword.png"
-const IRON_PATH := "res://Assets/Swords/Iron Shortsword.png"
-const GOLD_PATH := "res://Assets/Swords/Golden Shortsword.png"
+const NORMAL_PATH := "res://assets/Swords/shortsword.png"
+const IRON_PATH := "res://assets/Swords/iron_shortsword.png"
+const GOLD_PATH := "res://assets/Swords/golden_shortsword.png"
 const NORMAL_DAMAGE := 1
 const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3

@@ -1,12 +1,12 @@
 extends Area2D
 
 
-const NORMAL_PATH := "res://Assets/Bows/Bow.png"
-const NORMAL_DRAWN_PATH := "res://Assets/Bows/Drawn Bow.png"
-const IRON_PATH := "res://Assets/Bows/Iron Bow.png"
-const IRON_DRAWN_PATH := "res://Assets/Bows/Drawn IronBow.png"
-const GOLD_PATH := "res://Assets/Bows/Golden Bow.png"
-const GOLD_DRAWN_PATH := "res://Assets/Bows/Drawn Gold Bow.png"
+const NORMAL_PATH := "res://assets/Bows/bow.png"
+const NORMAL_DRAWN_PATH := "res://assets/Bows/drawn_bow.png"
+const IRON_PATH := "res://assets/Bows/iron_bow.png"
+const IRON_DRAWN_PATH := "res://assets/Bows/drawn_Iron_bow.png"
+const GOLD_PATH := "res://assets/Bows/golden_bow.png"
+const GOLD_DRAWN_PATH := "res://assets/Bows/drawn_gold_bow.png"
 const NORMAL_DAMAGE := 1
 const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
