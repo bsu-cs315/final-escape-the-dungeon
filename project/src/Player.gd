@@ -30,52 +30,51 @@ func _ready():
 	print(health)
 
 func _physics_process(_delta):
-	var direction := Vector2(0,0)
-	if Input.is_action_just_pressed("attack"):
-		attack()
-	if Input.is_action_pressed("move_up"):
-		direction.y -= 1
-	if Input.is_action_pressed("move_down"):
-		direction.y += 1
-	if Input.is_action_pressed("move_left"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_right"):
-		direction.x += 1
-		
-	var mouse_pos = get_viewport().get_mouse_position()
-	var x = mouse_pos.x - CENTER_POINT.x
-	var y = mouse_pos.y - CENTER_POINT.y
-	if x < 0 and abs(x) > abs(y * 1.5):
-		facing = "left"
-	elif x >= 0 and abs(x) > abs(y * 1.5):
-		facing = "right"
-	elif y < 0 and abs(y * 1.5) > abs(x):
-		facing = "up"
-	else:
-		facing = "down"
-		
-	direction = direction.normalized()
-	
-	if not _is_hurt and not _is_attacking:
-		if direction.length() > 0:
-			$AnimatedSprite.play("walk")
+	if active:
+		var direction := Vector2(0,0)
+		if Input.is_action_just_pressed("attack"):
+			attack()
+		if Input.is_action_pressed("move_up"):
+			direction.y -= 1
+		if Input.is_action_pressed("move_down"):
+			direction.y += 1
+		if Input.is_action_pressed("move_left"):
+			direction.x -= 1
+		if Input.is_action_pressed("move_right"):
+			direction.x += 1
+			
+		var mouse_pos = get_viewport().get_mouse_position()
+		var x = mouse_pos.x - CENTER_POINT.x
+		var y = mouse_pos.y - CENTER_POINT.y
+		if x < 0 and abs(x) > abs(y * 1.5):
+			facing = "left"
+		elif x >= 0 and abs(x) > abs(y * 1.5):
+			facing = "right"
+		elif y < 0 and abs(y * 1.5) > abs(x):
+			facing = "up"
 		else:
-			$AnimatedSprite.play("idle")
+			facing = "down"
+			
+		direction = direction.normalized()
 		
-	if direction.x < 0:
-		$AnimatedSprite.scale.x = 1
-	elif direction.x > 0:
-		$AnimatedSprite.scale.x = -1
-	
-	var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
+		if not _is_hurt and not _is_attacking:
+			if direction.length() > 0:
+				$AnimatedSprite.play("walk")
+			else:
+				$AnimatedSprite.play("idle")
+			
+		if direction.x < 0:
+			$AnimatedSprite.scale.x = 1
+		elif direction.x > 0:
+			$AnimatedSprite.scale.x = -1
+		
+		var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
 
 
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
 		bar.value = health
-		print("health: " + str(health))
-		print("bar value: " + str(bar.value))
 		_is_hurt = true
 		if health <= 0:
 			$AnimatedSprite.play("killed")
@@ -136,4 +135,13 @@ func spawn_arrow(damage):
 	arrow.fire(position, facing)
 	
 func killed():
-	var _ignored = get_tree().change_scene("res://src/EndScreen.tscn")
+	active = false
+	$HUD/EndMessage.text = "You Died"
+	$HUD/RestartButton.visible = true
+	$HUD/EndMessage.visible = true
+	
+func win():
+	pass
+
+func _on_RestartButton_pressed():
+	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
