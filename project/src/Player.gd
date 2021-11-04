@@ -7,6 +7,7 @@ const UP_ROTATION := 0
 const DOWN_ROTATION := 180
 const CENTER_POINT := Vector2(468,300)
 const WALL_COLLISION := Vector2(0,0)
+const DIRECTION_MULT := 1.5
 
 
 export var speed := 150
@@ -51,11 +52,11 @@ func _physics_process(_delta):
 		var mouse_pos = get_viewport().get_mouse_position()
 		var x = mouse_pos.x - CENTER_POINT.x
 		var y = mouse_pos.y - CENTER_POINT.y
-		if x < 0 and abs(x) > abs(y * 1.5):
+		if x < 0 and abs(x) > abs(y * DIRECTION_MULT):
 			facing = "left"
-		elif x >= 0 and abs(x) > abs(y * 1.5):
+		elif x >= 0 and abs(x) > abs(y * DIRECTION_MULT):
 			facing = "right"
-		elif y < 0 and abs(y * 1.5) > abs(x):
+		elif y < 0 and abs(y * DIRECTION_MULT) > abs(x):
 			facing = "up"
 		else:
 			facing = "down"
