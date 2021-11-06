@@ -14,16 +14,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "attack",
@@ -33,6 +23,16 @@ animations = [ {
 "loop": true,
 "name": "killed",
 "speed": 0.5
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "hurt",
+"speed": 1.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

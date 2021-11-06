@@ -15,7 +15,7 @@ export var max_health := 5
 export var health := 5
 
 
-var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon := load("res://src/Bow.tscn")
 var current_weapon
 var active := true
 var facing := "left"
