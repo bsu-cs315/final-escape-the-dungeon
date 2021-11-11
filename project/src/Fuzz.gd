@@ -14,13 +14,14 @@ var velocity := Vector2()
 
 var _is_hurt := false
 var _is_attacking := false
+var _is_paused := false
 
 
 onready var player := get_node("../Player")
 
 
 func _process(_delta):
-	if _is_hurt or _is_attacking:
+	if _is_hurt or _is_attacking or _is_paused:
 		velocity = Vector2.ZERO
 	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
 		if player.position.x > position.x:
@@ -85,3 +86,7 @@ func take_damage(damage):
 			else:
 				$AnimatedSprite.play("hurt")
 		_is_hurt = true
+
+
+func pause(value):
+	_is_paused = value

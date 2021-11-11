@@ -41,12 +41,13 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("open_inventory"):
 		if not is_paused:
 			is_paused = true
-			#Pause the game - probably a function in the level
+			get_parent().pause_enemies(true)
 			$AnimatedSprite.play("idle")
 			$HUD.visible = false
 			$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
 		else:
 			is_paused = false
+			get_parent().pause_enemies(false)
 			$HUD.visible = true
 			$Inventory.hide()
 	if is_active and not is_paused:
