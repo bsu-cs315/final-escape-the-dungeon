@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/walk.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/Player/hit.png" type="Texture" id=4]
 [ext_resource path="res://assets/Player/killed.png" type="Texture" id=5]
 [ext_resource path="res://assets/Player/attack.png" type="Texture" id=6]
+[ext_resource path="res://src/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Fonts/moiktext.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,6 +40,10 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 28.9106
 height = 13.416
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0588235, 0.807843, 0.105882, 1 )
@@ -73,7 +79,7 @@ shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.9, 0.9 )
 
 [node name="AttackLeft" type="Position2D" parent="."]
 position = Vector2( -30, 0 )
@@ -99,20 +105,21 @@ __meta__ = {
 [node name="HealthLabel" type="Label" parent="HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -103.926
-margin_top = 15.7387
-margin_right = -57.9257
-margin_bottom = 29.7387
+margin_left = -217.683
+margin_top = -108.085
+margin_right = -47.683
+margin_bottom = -57.0854
+custom_fonts/font = SubResource( 7 )
 text = "Health:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LifeBar" type="ProgressBar" parent="HUD"]
-margin_left = 209.904
-margin_top = 11.0
-margin_right = 301.904
-margin_bottom = 33.0
+margin_left = 251.214
+margin_top = -106.047
+margin_right = 420.214
+margin_bottom = -64.0469
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
 step = 1.0
@@ -127,11 +134,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -41.2983
-margin_top = 7.87717
-margin_right = 41.7017
-margin_bottom = 21.8772
+margin_left = -155.055
+margin_top = -13.2635
+margin_right = 157.945
+margin_bottom = 37.7365
+custom_fonts/font = SubResource( 7 )
 text = "End Message"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -150,6 +159,13 @@ text = "Return To Title Screen"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Inventory" parent="." instance=ExtResource( 7 )]
+visible = false
+margin_left = -501.347
+margin_top = -300.507
+margin_right = -501.347
+margin_bottom = -300.507
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="pressed" from="HUD/RestartButton" to="." method="_on_RestartButton_pressed"]

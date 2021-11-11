@@ -46,3 +46,7 @@ func update_type(new_type):
 func attack(facing):
 	direction = facing
 	$AnimationPlayer.play("Attack")
+
+
+func get_texture():
+	return $Sprite.texture

@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Player/normal.png" type="Texture" id=5]
 [ext_resource path="res://src/Inventory.gd" type="Script" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=7]
 size = 48
 font_data = ExtResource( 2 )
 
@@ -20,8 +20,10 @@ animations = [ {
 } ]
 
 [node name="Inventory" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.002
+anchor_bottom = 1.002
+margin_right = -0.0480957
+margin_bottom = -0.200073
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,7 +38,7 @@ margin_left = 262.397
 margin_top = 357.728
 margin_right = 379.397
 margin_bottom = 426.728
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 7 )
 text = "5/5"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,7 +49,7 @@ margin_left = 262.397
 margin_top = 441.733
 margin_right = 320.397
 margin_bottom = 492.733
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 7 )
 text = "x0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -57,7 +59,6 @@ __meta__ = {
 position = Vector2( 286.939, 244.464 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="PrimaryWeapon" type="Sprite" parent="."]

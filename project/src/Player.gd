@@ -13,11 +13,14 @@ const DIRECTION_MULT := 1.5
 export var speed := 150
 export var max_health := 5
 export var health := 5
+export var key_count := 0
 
 
-var primary_weapon := load("res://src/Bow.tscn")
-var current_weapon
-var active := true
+var primary_weapon := load("res://src/Shortsword.tscn")
+var secondary_weapon := load("res://src/Bow.tscn")
+var current_weapon 
+var is_active := true
+var is_paused := false
 var facing := "left"
 
 
@@ -35,7 +38,18 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if active:
+	if Input.is_action_just_pressed("open_inventory"):
+		if not is_paused:
+			is_paused = true
+			#Pause the game - probably a function in the level
+			$AnimatedSprite.play("idle")
+			$HUD.visible = false
+			$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
+		else:
+			is_paused = false
+			$HUD.visible = true
+			$Inventory.hide()
+	if is_active and not is_paused:
 		var direction := Vector2(0,0)
 		if Input.is_action_just_pressed("attack"):
 			attack()
@@ -145,7 +159,7 @@ func spawn_arrow(damage):
 
 
 func killed():
-	active = false
+	is_active = false
 	$HUD/EndMessage.text = "You Died"
 	$HUD/RestartButton.visible = true
 	$HUD/EndMessage.visible = true
