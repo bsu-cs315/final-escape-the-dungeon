@@ -18,7 +18,6 @@ export var weapon_type := "Bow"
 
 
 var type := "Normal"
-var direction := "left"
 
 
 func _ready():
@@ -36,14 +35,15 @@ func update_type(new_type):
 	type = new_type
 	if type == "Golden":
 		$Sprite.texture = load(GOLD_PATH)
+		$Drawn.texture = load(GOLD_DRAWN_PATH)
 		damage = GOLD_DAMAGE
 	elif type == "Iron":
 		$Sprite.texture = load(IRON_PATH)
+		$Drawn.texture = load(IRON_DRAWN_PATH)
 		damage = IRON_DAMAGE
 
 
-func attack(facing):
-	direction = facing
+func attack():
 	$AnimationPlayer.play("Attack")
 
 

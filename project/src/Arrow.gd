@@ -6,31 +6,26 @@ const UP_ROTATION := 0
 const DOWN_ROTATION := 180
 const LEFT_ROTATION := -90
 const RIGHT_ROTATION := 90
-const SPEED := 500
+const SPEED := 500.0000
+const ANGLE_ADDITION := 90.0000
 
 
 export var damage := 1
 export var weapon_type := "Arrow"
 
 
-var facing := "left"
+var facing := 0
 var pos := Vector2.ZERO
-var x := 0
-var y := 0
+var x := 0.0000
+var y := 0.0000
 
 
 var _launcher := "Player"
 
 
 func _process(delta):
-	if facing == "down":
-		y = SPEED
-	elif facing == "right":
-		x = SPEED
-	elif facing == "up":
-		y = -SPEED
-	elif facing == "left":
-		x = -SPEED
+	y = sin(deg2rad(facing + ANGLE_ADDITION)) * SPEED * -1.0000
+	x = cos(deg2rad(facing + ANGLE_ADDITION)) * SPEED * -1.0000
 	pos.x += x * delta
 	pos.y += y * delta
 	position = pos
@@ -67,11 +62,4 @@ func fire(bow_pos, direction):
 	position = bow_pos
 	pos = bow_pos
 	facing = direction
-	if direction == "down":
-		rotation_degrees += DOWN_ROTATION
-	elif direction == "right":
-		rotation_degrees += RIGHT_ROTATION
-	elif direction == "up":
-		rotation_degrees += UP_ROTATION
-	elif direction == "left":
-		rotation_degrees += LEFT_ROTATION
+	rotation_degrees = direction

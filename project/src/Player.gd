@@ -1,13 +1,8 @@
 extends KinematicBody2D
 
 
-const LEFT_ROTATION := -90
-const RIGHT_ROTATION := 90
-const UP_ROTATION := 0
-const DOWN_ROTATION := 180
-const CENTER_POINT := Vector2(468,300)
+const ROTATION_OFFSET := 90
 const WALL_COLLISION := Vector2(0,0)
-const DIRECTION_MULT := 1.5
 
 
 export var speed := 150
@@ -17,11 +12,13 @@ export var key_count := 0
 
 
 var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon_rank := "Normal"
 var secondary_weapon := load("res://src/Bow.tscn")
+var secondary_weapon_rank := "Normal"
 var current_weapon 
 var is_active := true
 var is_paused := false
-var facing := "left"
+var angle_facing := 0.0000
 
 
 var _is_hurt := false
@@ -35,7 +32,7 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
-	$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
 
 
 func _physics_process(_delta):
@@ -50,7 +47,10 @@ func _physics_process(_delta):
 			var switcher = primary_weapon
 			primary_weapon = secondary_weapon
 			secondary_weapon = switcher
-			$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
+			switcher = primary_weapon_rank
+			primary_weapon_rank = secondary_weapon_rank
+			secondary_weapon_rank = switcher
+			$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
@@ -61,18 +61,6 @@ func _physics_process(_delta):
 			direction.x -= 1
 		if Input.is_action_pressed("move_right"):
 			direction.x += 1
-			
-		var mouse_pos = get_viewport().get_mouse_position()
-		var x = mouse_pos.x - CENTER_POINT.x
-		var y = mouse_pos.y - CENTER_POINT.y
-		if x < 0 and abs(x) > abs(y * DIRECTION_MULT):
-			facing = "left"
-		elif x >= 0 and abs(x) > abs(y * DIRECTION_MULT):
-			facing = "right"
-		elif y < 0 and abs(y * DIRECTION_MULT) > abs(x):
-			facing = "up"
-		else:
-			facing = "down"
 			
 		direction = direction.normalized()
 		
@@ -113,33 +101,17 @@ func get_current_weapon():
 func attack():
 	if not current_weapon:
 		_is_attacking = true
-		current_weapon = primary_weapon.instance()
+		current_weapon = initialize_weapon(primary_weapon, primary_weapon_rank)
 		call_deferred("add_child", current_weapon)
 		position_weapon()
-		if current_weapon.weapon_type == "Bow":
-			current_weapon.attack(facing)
-		else:
-			current_weapon.attack()
+		current_weapon.attack()
 		$AnimatedSprite.play("attack")
 
 
 func position_weapon():
-	if facing == "up":
-		current_weapon.position = $AttackUp.position
-		current_weapon.position.y -= current_weapon.position_extension
-		current_weapon.rotation_degrees += UP_ROTATION
-	elif facing == "down":
-		current_weapon.position = $AttackDown.position
-		current_weapon.position.y += current_weapon.position_extension
-		current_weapon.rotation_degrees += DOWN_ROTATION
-	elif facing == "left":
-		current_weapon.position = $AttackLeft.position
-		current_weapon.position.x -= current_weapon.position_extension
-		current_weapon.rotation_degrees += LEFT_ROTATION
-	elif facing == "right":
-		current_weapon.position = $AttackRight.position
-		current_weapon.position.x += current_weapon.position_extension
-		current_weapon.rotation_degrees += RIGHT_ROTATION
+	angle_facing = rad2deg(get_angle_to(get_global_mouse_position())) + ROTATION_OFFSET
+	current_weapon.position = $Center.position
+	current_weapon.rotation_degrees += angle_facing
 
 
 func remove_weapon():
@@ -151,7 +123,7 @@ func spawn_arrow(damage):
 	var arrow = load("res://src/Arrow.tscn").instance()
 	get_parent().call_deferred("add_child", arrow)
 	arrow.damage = damage
-	arrow.fire(position, facing)
+	arrow.fire(position, angle_facing)
 
 
 func killed():
@@ -178,3 +150,9 @@ func unpause():
 	get_parent().pause_enemies(false)
 	$HUD.visible = true
 	$Inventory.hide()
+
+
+func initialize_weapon(weapon_type, rank):
+	var instance = weapon_type.instance()
+	instance.update_type(rank)
+	return instance
