@@ -19,7 +19,7 @@ export var key_count := 0
 var primary_weapon := load("res://src/Shortsword.tscn")
 var primary_weapon_rank := "Normal"
 var secondary_weapon := load("res://src/Bow.tscn")
-var secondary_weapon_rank := "Iron"
+var secondary_weapon_rank := "Normal"
 var current_weapon 
 var is_active := true
 var is_paused := false
