@@ -13,11 +13,14 @@ const DIRECTION_MULT := 1.5
 export var speed := 150
 export var max_health := 5
 export var health := 5
+export var key_count := 0
 
 
-var primary_weapon := load("res://src/Bow.tscn")
-var current_weapon
-var active := true
+var primary_weapon := load("res://src/Shortsword.tscn")
+var secondary_weapon := load("res://src/Bow.tscn")
+var current_weapon 
+var is_active := true
+var is_paused := false
 var facing := "left"
 
 
@@ -32,11 +35,29 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
+	$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
 
 
 func _physics_process(_delta):
-	if active:
+	if Input.is_action_just_pressed("open_inventory"):
+		if not is_paused:
+			is_paused = true
+			get_parent().pause_enemies(true)
+			$AnimatedSprite.play("idle")
+			$HUD.visible = false
+			$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
+		else:
+			is_paused = false
+			get_parent().pause_enemies(false)
+			$HUD.visible = true
+			$Inventory.hide()
+	if is_active and not is_paused:
 		var direction := Vector2(0,0)
+		if Input.is_action_just_pressed("change_weapon"):
+			var switcher = primary_weapon
+			primary_weapon = secondary_weapon
+			secondary_weapon = switcher
+			$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
@@ -74,10 +95,6 @@ func _physics_process(_delta):
 			$AnimatedSprite.scale.x = -1
 		
 		var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
-
-
-func _on_RestartButton_pressed():
-	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
 
 
 func _on_AnimatedSprite_animation_finished():
@@ -145,7 +162,7 @@ func spawn_arrow(damage):
 
 
 func killed():
-	active = false
+	is_active = false
 	$HUD/EndMessage.text = "You Died"
 	$HUD/RestartButton.visible = true
 	$HUD/EndMessage.visible = true

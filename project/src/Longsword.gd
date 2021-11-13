@@ -34,3 +34,7 @@ func update_type(new_type):
 
 func attack():
 	$AnimationPlayer.play("Attack")
+
+
+func get_texture():
+	return $CollisionShape2D/Sprite.texture
