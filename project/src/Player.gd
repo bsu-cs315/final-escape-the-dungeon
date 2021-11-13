@@ -38,16 +38,9 @@ func _ready():
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("open_inventory"):
 		if not is_paused:
-			is_paused = true
-			get_parent().pause_enemies(true)
-			$AnimatedSprite.play("idle")
-			$HUD.visible = false
-			$Inventory.show_inventory(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), health, key_count)
+			pause()
 		else:
-			is_paused = false
-			get_parent().pause_enemies(false)
-			$HUD.visible = true
-			$Inventory.hide()
+			unpause()
 	if is_active and not is_paused:
 		var direction := Vector2(0,0)
 		if Input.is_action_just_pressed("change_weapon"):
@@ -142,6 +135,21 @@ func killed():
 
 func win():
 	pass
+
+
+func pause():
+	is_paused = true
+	get_parent().pause_enemies(true)
+	$AnimatedSprite.play("idle")
+	$HUD.visible = false
+	$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
+
+
+func unpause():
+	is_paused = false
+	get_parent().pause_enemies(false)
+	$HUD.visible = true
+	$Inventory.hide()
 
 
 func initialize_weapon(weapon_type, rank):

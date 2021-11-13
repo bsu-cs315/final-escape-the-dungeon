@@ -10,7 +10,7 @@ const GOLD_DAMAGE := 3
 
 
 export var damage := NORMAL_DAMAGE
-export var weapon_type = "Longsword"
+export var weapon_type := "Longsword"
 
 
 var type := "Normal"
