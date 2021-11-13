@@ -9,9 +9,8 @@ const IRON_DAMAGE := 2
 const GOLD_DAMAGE := 3
 
 
-export var position_extension := 0
 export var damage := NORMAL_DAMAGE
-export var weapon_type = "Shortsword"
+export var weapon_type := "Shortsword"
 
 
 var type := "Normal"
@@ -25,10 +24,10 @@ func _on_AnimationPlayer_animation_finished(_anim_name):
 func update_type(new_type):
 	type = new_type
 	if type == "Golden":
-		$Sprite.texture = load(GOLD_PATH)
+		$CollisionShape2D/Sprite.texture = load(GOLD_PATH)
 		damage = GOLD_DAMAGE
 	elif type == "Iron":
-		$Sprite.texture = load(IRON_PATH)
+		$CollisionShape2D/Sprite.texture = load(IRON_PATH)
 		damage = IRON_DAMAGE
 
 
