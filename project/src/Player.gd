@@ -11,7 +11,7 @@ export var health := 5
 export var key_count := 0
 
 
-var primary_weapon := load("res://src/Longsword.tscn")
+var primary_weapon := load("res://src/Shortsword.tscn")
 var primary_weapon_rank := "Normal"
 var secondary_weapon := load("res://src/Bow.tscn")
 var secondary_weapon_rank := "Normal"
