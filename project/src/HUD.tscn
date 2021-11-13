@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/Fonts/moiktext.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Screens/Inventory/item-window.png" type="Texture" id=2]
 [ext_resource path="res://assets/Screens/Inventory/empty.png" type="Texture" id=3]
 [ext_resource path="res://src/HUD.gd" type="Script" id=4]
+[ext_resource path="res://assets/Items/key_outline.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -112,5 +113,20 @@ texture = ExtResource( 2 )
 position = Vector2( -0.221558, 0.0847931 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 3 )
+
+[node name="KeyLogo" type="Sprite" parent="."]
+position = Vector2( 61.6926, 199.141 )
+texture = ExtResource( 5 )
+
+[node name="KeyLabel" type="Label" parent="."]
+margin_left = 93.1643
+margin_top = 184.084
+margin_right = 151.164
+margin_bottom = 235.084
+custom_fonts/font = SubResource( 1 )
+text = "x0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
