@@ -17,7 +17,9 @@ export var key_count := 0
 
 
 var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon_rank := "Normal"
 var secondary_weapon := load("res://src/Bow.tscn")
+var secondary_weapon_rank := "Iron"
 var current_weapon 
 var is_active := true
 var is_paused := false
@@ -35,7 +37,7 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
-	$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
 
 
 func _physics_process(_delta):
@@ -45,7 +47,7 @@ func _physics_process(_delta):
 			get_parent().pause_enemies(true)
 			$AnimatedSprite.play("idle")
 			$HUD.visible = false
-			$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
+			$Inventory.show_inventory(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), health, key_count)
 		else:
 			is_paused = false
 			get_parent().pause_enemies(false)
@@ -57,7 +59,10 @@ func _physics_process(_delta):
 			var switcher = primary_weapon
 			primary_weapon = secondary_weapon
 			secondary_weapon = switcher
-			$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
+			switcher = primary_weapon_rank
+			primary_weapon_rank = secondary_weapon_rank
+			secondary_weapon_rank = switcher
+			$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
@@ -120,7 +125,7 @@ func get_current_weapon():
 func attack():
 	if not current_weapon:
 		_is_attacking = true
-		current_weapon = primary_weapon.instance()
+		current_weapon = initialize_weapon(primary_weapon, primary_weapon_rank)
 		call_deferred("add_child", current_weapon)
 		position_weapon()
 		if current_weapon.weapon_type == "Bow":
@@ -170,3 +175,9 @@ func killed():
 
 func win():
 	pass
+
+
+func initialize_weapon(weapon_type, rank):
+	var instance = weapon_type.instance()
+	instance.update_type(rank)
+	return instance
