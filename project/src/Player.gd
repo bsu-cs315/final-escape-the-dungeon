@@ -2,9 +2,7 @@ extends KinematicBody2D
 
 
 const ROTATION_OFFSET := 90
-const CENTER_POINT := Vector2(468,300)
 const WALL_COLLISION := Vector2(0,0)
-const DIRECTION_MULT := 1.5
 
 
 export var speed := 150
@@ -13,14 +11,13 @@ export var health := 5
 export var key_count := 0
 
 
-var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon := load("res://src/Longsword.tscn")
 var primary_weapon_rank := "Normal"
 var secondary_weapon := load("res://src/Bow.tscn")
 var secondary_weapon_rank := "Normal"
 var current_weapon 
 var is_active := true
 var is_paused := false
-var facing := "left"
 var angle_facing := 0.0000
 
 
@@ -114,16 +111,13 @@ func attack():
 		current_weapon = initialize_weapon(primary_weapon, primary_weapon_rank)
 		call_deferred("add_child", current_weapon)
 		position_weapon()
-		if current_weapon.weapon_type == "Bow":
-			current_weapon.attack(facing)
-		else:
-			current_weapon.attack()
+		current_weapon.attack()
 		$AnimatedSprite.play("attack")
 
 
 func position_weapon():
 	angle_facing = rad2deg(get_angle_to(get_global_mouse_position())) + ROTATION_OFFSET
-	current_weapon.position = $AttackRight.position
+	current_weapon.position = $Center.position
 	current_weapon.rotation_degrees += angle_facing
 
 

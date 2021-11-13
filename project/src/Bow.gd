@@ -13,13 +13,11 @@ const GOLD_DAMAGE := 3
 const BOW_ROTATION := -45
 
 
-export var position_extension := 0
 export var damage := NORMAL_DAMAGE
 export var weapon_type := "Bow"
 
 
 var type := "Normal"
-var direction := "left"
 
 
 func _ready():
@@ -45,8 +43,7 @@ func update_type(new_type):
 		damage = IRON_DAMAGE
 
 
-func attack(facing):
-	direction = facing
+func attack():
 	$AnimationPlayer.play("Attack")
 
 
