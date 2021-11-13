@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Screens/Inventory/inventory.png" type="Texture" id=1]
 [ext_resource path="res://assets/Fonts/moiktext.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://assets/Screens/Inventory/empty.png" type="Texture" id=4]
 [ext_resource path="res://assets/Player/normal.png" type="Texture" id=5]
 [ext_resource path="res://src/Inventory.gd" type="Script" id=6]
+[ext_resource path="res://assets/Screens/Inventory/graybutton1.png" type="Texture" id=7]
+[ext_resource path="res://assets/Screens/Inventory/graybutton2.png" type="Texture" id=8]
+[ext_resource path="res://assets/Screens/Inventory/bluebutton1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Screens/Inventory/bluebutton2.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -19,11 +23,19 @@ animations = [ {
 "speed": 1.0
 } ]
 
+[sub_resource type="DynamicFont" id=3]
+size = 80
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Inventory" type="Control"]
 anchor_right = 1.002
 anchor_bottom = 1.002
-margin_right = -0.0480957
-margin_bottom = -0.200073
+margin_left = 2.52271
+margin_top = -36.1585
+margin_right = 2.47461
+margin_bottom = -36.3586
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,3 +81,70 @@ texture = ExtResource( 4 )
 [node name="SecondaryWeapon" type="Sprite" parent="."]
 position = Vector2( 443.001, 263.624 )
 texture = ExtResource( 4 )
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+margin_left = 550.0
+margin_top = 125.0
+margin_right = 993.0
+margin_bottom = 233.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Label" parent="ResumeButton"]
+margin_left = 75.4349
+margin_top = 15.4142
+margin_right = 377.435
+margin_bottom = 100.414
+custom_fonts/font = SubResource( 3 )
+text = "Resume"
+
+[node name="RestartButton" type="TextureButton" parent="."]
+margin_left = 550.0
+margin_top = 200.0
+margin_right = 993.0
+margin_bottom = 308.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Label" parent="RestartButton"]
+margin_left = 67.6567
+margin_top = 17.4142
+margin_right = 381.657
+margin_bottom = 102.414
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+
+[node name="TitleButton" type="TextureButton" parent="."]
+margin_left = 550.0
+margin_top = 275.0
+margin_right = 993.0
+margin_bottom = 383.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="TitleButton"]
+margin_left = 138.485
+margin_top = 17.5355
+margin_right = 315.485
+margin_bottom = 102.536
+custom_fonts/font = SubResource( 3 )
+text = "Title"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="TitleButton" to="." method="_on_TitleButton_pressed"]
