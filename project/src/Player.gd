@@ -92,6 +92,7 @@ func take_damage(damage):
 			killed()
 		else:
 			$AnimatedSprite.play("hurt")
+	$Camera2D.screen_shake(.5)
 
 
 func get_current_weapon():
