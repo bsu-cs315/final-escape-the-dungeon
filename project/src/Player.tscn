@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/walk.png" type="Texture" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Player/killed.png" type="Texture" id=5]
 [ext_resource path="res://assets/Player/attack.png" type="Texture" id=6]
 [ext_resource path="res://src/Inventory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/Fonts/moiktext.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -41,30 +41,6 @@ animations = [ {
 radius = 28.9106
 height = 13.416
 
-[sub_resource type="DynamicFont" id=3]
-size = 48
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.0588235, 0.807843, 0.105882, 1 )
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.243137, 0.701961, 0.72549, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.211765, 0.588235, 0.607843, 1 )
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [node name="Player" type="KinematicBody2D"]
 z_index = 2
 script = ExtResource( 1 )
@@ -93,72 +69,7 @@ position = Vector2( 0, -30 )
 [node name="AttackDown" type="Position2D" parent="."]
 position = Vector2( 0, 30 )
 
-[node name="HUD" type="Control" parent="."]
-margin_left = -255.805
-margin_top = -148.488
-margin_right = 256.195
-margin_bottom = -69.4882
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthLabel" type="Label" parent="HUD"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -217.683
-margin_top = -108.085
-margin_right = -47.683
-margin_bottom = -57.0854
-custom_fonts/font = SubResource( 3 )
-text = "Health:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LifeBar" type="ProgressBar" parent="HUD"]
-margin_left = 251.214
-margin_top = -106.047
-margin_right = 420.214
-margin_bottom = -64.0469
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
-step = 1.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EndMessage" type="Label" parent="HUD"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -155.055
-margin_top = -13.2635
-margin_right = 157.945
-margin_bottom = 37.7365
-custom_fonts/font = SubResource( 3 )
-text = "End Message"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RestartButton" type="Button" parent="HUD"]
-visible = false
-margin_left = 179.437
-margin_top = 220.781
-margin_right = 331.437
-margin_bottom = 262.781
-custom_styles/hover = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
-text = "Return To Title Screen"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HUD" parent="." instance=ExtResource( 8 )]
 
 [node name="Inventory" parent="." instance=ExtResource( 7 )]
 visible = false
@@ -168,4 +79,3 @@ margin_right = -501.347
 margin_bottom = -300.507
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-[connection signal="pressed" from="HUD/RestartButton" to="." method="_on_RestartButton_pressed"]

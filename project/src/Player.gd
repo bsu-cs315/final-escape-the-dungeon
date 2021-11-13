@@ -35,6 +35,7 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
+	$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
 
 
 func _physics_process(_delta):
@@ -56,6 +57,7 @@ func _physics_process(_delta):
 			var switcher = primary_weapon
 			primary_weapon = secondary_weapon
 			secondary_weapon = switcher
+			$HUD.update_weapons(primary_weapon.instance(), secondary_weapon.instance())
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
@@ -93,10 +95,6 @@ func _physics_process(_delta):
 			$AnimatedSprite.scale.x = -1
 		
 		var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
-
-
-func _on_RestartButton_pressed():
-	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
 
 
 func _on_AnimatedSprite_animation_finished():
