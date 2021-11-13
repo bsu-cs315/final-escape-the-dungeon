@@ -52,6 +52,10 @@ func _physics_process(_delta):
 			$Inventory.hide()
 	if is_active and not is_paused:
 		var direction := Vector2(0,0)
+		if Input.is_action_just_pressed("change_weapon"):
+			var switcher = primary_weapon
+			primary_weapon = secondary_weapon
+			secondary_weapon = switcher
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
