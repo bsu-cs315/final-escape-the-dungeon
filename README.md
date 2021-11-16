@@ -2,7 +2,7 @@
 Repository for final project. Created by Michael Heckman, Cameron Slash, and Lloyd Rowe.
 
 ## Instructions
-Use the arrow keys or wasd to move around. Click the mouse in the direction you want to attack. Win the game by defeating all the monsters.
+Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E. Pick up items on the ground by attacking them/running into them with a bow. Win the game by defeating all the monsters.
 
 ## Project Report
 
