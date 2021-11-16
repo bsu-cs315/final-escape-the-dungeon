@@ -34,14 +34,14 @@ We personally believe that this project/iteration deserves an A, based on the fo
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
-- [ ] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
+- [O] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
 - [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
-- [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
+- [O] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
-- [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
+- [O] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [X] ⭐ Include an AI-controlled character
-- [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
+- [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 
