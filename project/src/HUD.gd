@@ -23,3 +23,9 @@ func update_key_count(value):
 		$KeyLogo.texture = load(KEY_OUTLINE)
 	else:
 		$KeyLogo.texture = load(KEY_TEXTURED)
+	var particles = load("res://src/ArrowParticles.tscn").instance()
+	particles.texture = load("res://assets/Items/key_particle.png")
+	particles.position = $KeyLogo.position
+	particles.emitting = true
+	particles.z_index = 100
+	get_parent().call_deferred("add_child", particles)
