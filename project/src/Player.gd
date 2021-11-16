@@ -159,6 +159,7 @@ func collect_item(item_type, item_rank):
 	if item_type == "Potion":
 		health = clamp(health + POTION_HEALTH, 0.00, max_health)
 		bar.value = health
+		spawn_particles("res://assets/Items/potion_particle.png")
 	elif item_type == "Key":
 		key_count += 1
 		$HUD.update_key_count(key_count)
@@ -194,3 +195,12 @@ func switch_weapon():
 	primary_weapon_rank = secondary_weapon_rank
 	secondary_weapon_rank = switcher
 	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+
+
+func spawn_particles(par_tex):
+	var particles = load("res://src/ArrowParticles.tscn").instance()
+	particles.texture = load(par_tex)
+	particles.position = position
+	particles.emitting = true
+	particles.z_index = 100
+	get_parent().call_deferred("add_child", particles)

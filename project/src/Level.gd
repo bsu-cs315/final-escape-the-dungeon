@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready():
-	$Item.set_item("Key", "null")
+	$Item.set_item("Potion", "null")
 
 
 func _process(_delta):
