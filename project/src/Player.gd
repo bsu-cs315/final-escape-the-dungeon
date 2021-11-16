@@ -146,7 +146,7 @@ func unpause():
 	is_paused = false
 	get_parent().pause_enemies(false)
 	$HUD.visible = true
-	$Inventory.hide()
+	$Inventory.hide_inventory()
 
 
 func initialize_weapon(weapon_type, rank):
