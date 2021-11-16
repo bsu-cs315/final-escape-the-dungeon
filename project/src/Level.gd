@@ -3,6 +3,7 @@ extends Node2D
 
 func _ready():
 	$Item.set_item("Potion", "null")
+	$Item2.set_item("Key", "null")
 
 
 func _process(_delta):
@@ -18,3 +19,12 @@ func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
 
+
+
+func _on_Chest_open(chest):
+	var position = chest.position
+	var new_item: Item = load("res://src/Item.tscn").instance()
+	new_item.set_item("Potion", "null")
+	new_item.position = position
+	call_deferred("remove_child", chest)
+	call_deferred("add_child", new_item)
