@@ -1,6 +1,10 @@
 extends Node2D
 
 
+func _ready():
+	$Item.set_item("Potion", "null")
+
+
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
 	if no_enemies:
