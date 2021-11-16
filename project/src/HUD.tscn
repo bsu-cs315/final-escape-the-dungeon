@@ -69,10 +69,10 @@ __meta__ = {
 }
 
 [node name="LifeBar" type="ProgressBar" parent="."]
-margin_left = -4.59099
-margin_top = -254.535
-margin_right = 164.409
-margin_bottom = -212.535
+margin_left = -5.0
+margin_top = -255.0
+margin_right = 162.0
+margin_bottom = -213.0
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 step = 1.0
