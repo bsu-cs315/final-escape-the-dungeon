@@ -33,7 +33,7 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), false)
 
 
 func _physics_process(_delta):
@@ -194,7 +194,7 @@ func switch_weapon():
 	switcher = primary_weapon_rank
 	primary_weapon_rank = secondary_weapon_rank
 	secondary_weapon_rank = switcher
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 
 
 func spawn_particles(par_tex):

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Fonts/moiktext.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/Screens/Inventory/item-window.png" type="Texture" id=2]
 [ext_resource path="res://assets/Screens/Inventory/empty.png" type="Texture" id=3]
 [ext_resource path="res://src/HUD.gd" type="Script" id=4]
 [ext_resource path="res://assets/Items/key_outline.png" type="Texture" id=5]
+[ext_resource path="res://assets/Items/inventory.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -29,6 +30,22 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id=6]
+resource_name = "grow"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryWindow/Weapon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.1 ), Vector2( 1.45, 1.45 ), Vector2( 1.1, 1.1 ) ]
+}
 
 [node name="HUD" type="Control"]
 margin_right = 40.0
@@ -128,5 +145,12 @@ text = "x0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="inventory" type="Sprite" parent="."]
+position = Vector2( -409, -240 )
+texture = ExtResource( 6 )
+
+[node name="PrimaryAnimation" type="AnimationPlayer" parent="."]
+anims/grow = SubResource( 6 )
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

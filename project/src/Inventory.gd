@@ -24,6 +24,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
 	visible = true
+	$AnimationPlayer.stop()
 	$AnimationPlayer.play("open")
 	$PrimaryWeapon.texture = primary_weapon.get_texture()
 	$SecondaryWeapon.texture = secondary_weapon.get_texture()
@@ -32,4 +33,5 @@ func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
 
 
 func hide_inventory():
+	$AnimationPlayer.stop()
 	$AnimationPlayer.play("close")
