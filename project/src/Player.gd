@@ -3,11 +3,12 @@ extends KinematicBody2D
 
 const ROTATION_OFFSET := 90
 const WALL_COLLISION := Vector2(0,0)
+const POTION_HEALTH := 2.00
 
 
 export var speed := 150
-export var max_health := 5
-export var health := 5
+export var max_health := 5.00
+export var health := 5.00
 export var key_count := 0
 
 
@@ -36,6 +37,7 @@ func _ready():
 
 
 func _physics_process(_delta):
+	print(health)
 	if Input.is_action_just_pressed("open_inventory"):
 		if not is_paused:
 			pause()
@@ -44,13 +46,7 @@ func _physics_process(_delta):
 	if is_active and not is_paused:
 		var direction := Vector2(0,0)
 		if Input.is_action_just_pressed("change_weapon"):
-			var switcher = primary_weapon
-			primary_weapon = secondary_weapon
-			secondary_weapon = switcher
-			switcher = primary_weapon_rank
-			primary_weapon_rank = secondary_weapon_rank
-			secondary_weapon_rank = switcher
-			$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+			switch_weapon()
 		if Input.is_action_just_pressed("attack"):
 			attack()
 		if Input.is_action_pressed("move_up"):
@@ -157,3 +153,44 @@ func initialize_weapon(weapon_type, rank):
 	var instance = weapon_type.instance()
 	instance.update_type(rank)
 	return instance
+
+
+func collect_item(item_type, item_rank):
+	if item_type == "Potion":
+		health = clamp(health + POTION_HEALTH, 0.00, max_health)
+		bar.value = health
+	elif item_type == "Key":
+		key_count += 1
+		$HUD.update_key_count(key_count)
+	elif item_type == "Bow":
+		drop_item()
+		primary_weapon = load("res://src/Bow.tscn")
+		primary_weapon_rank = item_rank
+	elif item_type == "Shortsword":
+		drop_item()
+		primary_weapon = load("res://src/Shortsword.tscn")
+		primary_weapon_rank = item_rank
+	elif item_type == "Longsword":
+		drop_item()
+		primary_weapon = load("res://src/Longsword.tscn")
+		primary_weapon_rank = item_rank
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+
+
+func drop_item():
+	var item = load("res://src/Item.tscn").instance()
+	item.set_item(primary_weapon.instance().weapon_type, primary_weapon_rank)
+	item.position = position
+	current_weapon.queue_free()
+	remove_weapon()
+	get_parent().call_deferred("add_child", item)
+
+
+func switch_weapon():
+	var switcher = primary_weapon
+	primary_weapon = secondary_weapon
+	secondary_weapon = switcher
+	switcher = primary_weapon_rank
+	primary_weapon_rank = secondary_weapon_rank
+	secondary_weapon_rank = switcher
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))

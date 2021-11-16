@@ -85,6 +85,12 @@ func take_damage(damage):
 				$AnimatedSprite.play("hurt 2") 
 			else:
 				$AnimatedSprite.play("hurt")
+			if damage == 0:
+				var particles = load("res://src/ArrowParticles.tscn").instance()
+				particles.texture = load("res://assets/Enemies/stun_particle.png")
+				particles.position = position
+				particles.emitting = true
+				get_parent().call_deferred("add_child", particles)
 		_is_hurt = true
 
 
