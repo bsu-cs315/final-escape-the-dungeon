@@ -53,8 +53,7 @@ We personally believe that this project/iteration deserves an A, based on the fo
 
 
 ## Third-Party Assets
-- [8x8 Roguelike](https://scut.itch.io/7drl-tileset-2018), licensed under no specific license, allowing use for non-commercial projects
 - [Dungeon Music by Samuelbcf7](https://freesound.org/people/Samuelbcf7/sounds/578733/), licensed under [Creative Commons 0 License](http://creativecommons.org/publicdomain/zero/1.0/)
 - [death monster sound 2 by ibm5155](https://freesound.org/people/ibm5155/sounds/174912/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
 - [creature sounds » monster pain by soundmast123](https://freesound.org/people/soundmast123/sounds/571974/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
-- Weapon and Beholder textures created by Michael Heckman.
+- All textures created by Michael Heckman.
