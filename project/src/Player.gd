@@ -167,15 +167,17 @@ func collect_item(item_type, item_rank):
 		drop_item()
 		primary_weapon = load("res://src/Bow.tscn")
 		primary_weapon_rank = item_rank
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Shortsword":
 		drop_item()
 		primary_weapon = load("res://src/Shortsword.tscn")
 		primary_weapon_rank = item_rank
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Longsword":
 		drop_item()
 		primary_weapon = load("res://src/Longsword.tscn")
 		primary_weapon_rank = item_rank
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 
 
 func drop_item():
