@@ -2,7 +2,7 @@ extends Sprite
 
 
 var potion := load("res://assets/Items/potion_full.png")
-var key := load("res://assets/Items/potion_full.png")
+var key := load("res://assets/Items/key.png")
 var shortsword := load("res://assets/Swords/shortsword.png")
 var iron_shortsword := load("res://assets/Swords/iron_shortsword.png")
 var gold_shortsword := load("res://assets/Swords/golden_shortsword.png")
