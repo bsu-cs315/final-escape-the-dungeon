@@ -37,7 +37,6 @@ func _ready():
 
 
 func _physics_process(_delta):
-	print(health)
 	if Input.is_action_just_pressed("open_inventory"):
 		if not is_paused:
 			pause()
@@ -93,6 +92,13 @@ func take_damage(damage):
 
 func get_current_weapon():
 	return current_weapon
+	
+func get_key_count():
+	return key_count
+	
+func use_key():
+	key_count -= 1
+	$HUD.update_key_count(key_count)
 
 
 func attack():

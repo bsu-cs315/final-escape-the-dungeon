@@ -1,4 +1,5 @@
 extends Sprite
+class_name Item
 
 
 var potion := load("res://assets/Items/potion_full.png")
@@ -17,7 +18,6 @@ var rank := "null"
 
 
 export var area_type := "item"
-
 
 onready var player := get_node("../Player")
 
