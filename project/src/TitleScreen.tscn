@@ -37,10 +37,10 @@ margin_left = 441.526
 margin_top = 467.954
 margin_right = 566.526
 margin_bottom = 501.954
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false

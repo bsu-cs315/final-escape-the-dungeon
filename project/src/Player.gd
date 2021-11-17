@@ -99,6 +99,8 @@ func get_key_count():
 func use_key():
 	key_count -= 1
 	$HUD.update_key_count(key_count)
+	current_weapon.queue_free()
+	remove_weapon()
 
 
 func attack():
