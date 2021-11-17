@@ -15,10 +15,17 @@ func _on_RestartButton_pressed():
 
 func _on_TitleButton_pressed():
 	var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
-	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "close":
+		visible = false
+
 
 func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
 	visible = true
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("open")
 	$PrimaryWeapon.texture = primary_weapon.get_texture()
 	$SecondaryWeapon.texture = secondary_weapon.get_texture()
 	$HealthLabel.text = str(health_amount) + "/5"
@@ -26,4 +33,5 @@ func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
 
 
 func hide_inventory():
-	visible = false
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("close")

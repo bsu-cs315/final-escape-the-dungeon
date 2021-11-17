@@ -6,6 +6,7 @@ func _ready():
 	$Item2.set_item("Key", "null")
 
 
+
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
 	if no_enemies:

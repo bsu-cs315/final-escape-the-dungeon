@@ -2,13 +2,20 @@
 Repository for final project. Created by Michael Heckman, Cameron Slash, and Lloyd Rowe.
 
 ## Instructions
-Use the arrow keys or wasd to move around. Click the mouse in the direction you want to attack. Win the game by defeating all the monsters.
+Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E. Pick up items on the ground by attacking them/running into them with a bow. Win the game by defeating all the monsters.
 
 ## Project Report
 
 ### Reflection 
 
-For this first iteration, we didn't hit very many issues in what we were working on, so things went mostly smoothly. None of us have ever done an AI, especially for something top-down, so it was an interesting challenge that wasn't difficult to implement. Other than that, there was trouble figuring out how to properly implement a health bar, but it was figured out without causing any issues.
+For this second iteration, we didn't hit very many issues in what we were working on, so things went mostly smoothly. Things like items and picking them up, as well as the inventory, were interesting and fun to try to implement, and not very difficult at all given that they were both sort of new concepts for us. There was debate on *how* to implement those concepts, but we've agreed on the best way to do it and think it went well.
+
+DOCUMENTATION OF STARS:
+Particles: Particles are emitted when a player picks up a key or potion, an arrow collides with an enemy or the wall, and when running into an enemy with the bow.
+Pop in the HUD: AnimationPlayer is used in the HUD when both opening/closing the inventory and switching weapons, giving it a little pop.
+AI Control: Enemies are controlled by an AI.
+Pause Menu: Opening the inventory pauses the game and allows for resuming, returning to the title screen, or restarting the game.
+Juciness: The camera shakes when the player is attacked, particles are emitted on occasion, and animations play in the HUD for different scenarios. There is also music and sound.
 
 We personally believe that this project/iteration deserves an A, based on the following requirements:
 
@@ -34,20 +41,19 @@ We personally believe that this project/iteration deserves an A, based on the fo
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
-- [O] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
+- [ ] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
 - [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
-- [O] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
+- [X] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
-- [O] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
+- [X] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [X] ⭐ Include an AI-controlled character
 - [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 
 ## Third-Party Assets
-- [8x8 Roguelike](https://scut.itch.io/7drl-tileset-2018), licensed under no specific license, allowing use for non-commercial projects
 - [Dungeon Music by Samuelbcf7](https://freesound.org/people/Samuelbcf7/sounds/578733/), licensed under [Creative Commons 0 License](http://creativecommons.org/publicdomain/zero/1.0/)
 - [death monster sound 2 by ibm5155](https://freesound.org/people/ibm5155/sounds/174912/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
 - [creature sounds » monster pain by soundmast123](https://freesound.org/people/soundmast123/sounds/571974/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
-- Weapon and Beholder textures created by Michael Heckman.
+- All textures created by Michael Heckman.

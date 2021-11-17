@@ -33,7 +33,7 @@ func _ready():
 	bar.max_value = max_health
 	bar.min_value = 0
 	bar.value = health
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), false)
 
 
 func _physics_process(_delta):
@@ -152,7 +152,7 @@ func unpause():
 	is_paused = false
 	get_parent().pause_enemies(false)
 	$HUD.visible = true
-	$Inventory.hide()
+	$Inventory.hide_inventory()
 
 
 func initialize_weapon(weapon_type, rank):
@@ -173,15 +173,17 @@ func collect_item(item_type, item_rank):
 		drop_item()
 		primary_weapon = load("res://src/Bow.tscn")
 		primary_weapon_rank = item_rank
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Shortsword":
 		drop_item()
 		primary_weapon = load("res://src/Shortsword.tscn")
 		primary_weapon_rank = item_rank
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Longsword":
 		drop_item()
 		primary_weapon = load("res://src/Longsword.tscn")
 		primary_weapon_rank = item_rank
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 
 
 func drop_item():
@@ -200,7 +202,7 @@ func switch_weapon():
 	switcher = primary_weapon_rank
 	primary_weapon_rank = secondary_weapon_rank
 	secondary_weapon_rank = switcher
-	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank))
+	$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 
 
 func spawn_particles(par_tex):
