@@ -214,3 +214,14 @@ func spawn_particles(par_tex):
 	particles.emitting = true
 	particles.z_index = 100
 	get_parent().call_deferred("add_child", particles)
+
+
+func _on_InventoryButton_toggled(button_pressed):
+	if button_pressed:
+		pause()
+	else:
+		unpause()
+
+
+func _on_WeaponButton_pressed():
+	switch_weapon()

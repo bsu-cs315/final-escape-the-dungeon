@@ -67,10 +67,10 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 427.0
-margin_top = 415.0
-margin_right = 552.0
-margin_bottom = 449.0
+margin_left = 448.0
+margin_top = 413.0
+margin_right = 573.0
+margin_bottom = 447.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = SubResource( 2 )
@@ -81,9 +81,9 @@ __meta__ = {
 }
 
 [node name="Instructions" type="Button" parent="."]
-margin_left = 427.0
+margin_left = 448.0
 margin_top = 470.0
-margin_right = 552.0
+margin_right = 573.0
 margin_bottom = 504.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -145,6 +145,9 @@ custom_styles/normal = SubResource( 11 )
 text = "Controls
 Use the arrow keys to move around
 Use the mouse to attack, collect and interact with enemies and objects
+Click the backback (top left) or press E to access inventory
+Click the weapons (bottom right) to change weapons
+
 
 How to Win
 Defeat all the enemies to open the door and then excape the dungeon"
