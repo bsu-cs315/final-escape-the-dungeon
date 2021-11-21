@@ -2,7 +2,7 @@
 Repository for final project. Created by Michael Heckman, Cameron Slash, and Lloyd Rowe.
 
 ## Instructions
-Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E. Pick up items on the ground by attacking them/running into them with a bow. Win the game by defeating all the monsters.
+Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E or by clicking the backpack icon. Switch weapons by pressing R or clicking the weapons icon. Pick up items on the ground by attacking them/running into them with a bow. Win the game by defeating all the monsters and escaping through the door that opens. 
 
 ## Project Report
 
