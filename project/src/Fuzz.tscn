@@ -19,11 +19,6 @@ height = 11.8597
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "hurt 2",
@@ -34,19 +29,24 @@ animations = [ {
 "name": "attack",
 "speed": 0.5
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "killed",
-"speed": 0.5
+"name": "hurt",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "hurt",
+"name": "killed",
+"speed": 0.5
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
 "speed": 1.0
 } ]
 
@@ -70,6 +70,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]

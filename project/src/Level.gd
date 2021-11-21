@@ -6,20 +6,18 @@ func _ready():
 	$Item2.set_item("Key", "null")
 
 
-
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
 	if no_enemies:
-		$Player.active = false
-		$Player/HUD/EndMessage.text = "You Win"
-		$Player/HUD/RestartButton.visible = true
-		$Player/HUD/EndMessage.visible = true
+		$Gate.visible  = false
+		$Gate/StaticBody2D/CollisionShape2D.disabled = true
+		$Player/HUD/DoorLabel.show()
+		
 
 
 func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
-
 
 
 func _on_Chest_open(chest):
@@ -29,3 +27,11 @@ func _on_Chest_open(chest):
 	new_item.position = position
 	call_deferred("remove_child", chest)
 	call_deferred("add_child", new_item)
+
+
+func _on_Dungeon_body_exited(body):
+	if body.name == 'Player':
+		$Player.is_active = false
+		$Player/HUD/EndMessage.text = "You Win"
+		$Player/HUD/RestartButton.visible = true
+		$Player/HUD/EndMessage.visible = true
