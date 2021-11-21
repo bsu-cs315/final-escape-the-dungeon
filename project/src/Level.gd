@@ -9,7 +9,8 @@ func _ready():
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
 	if no_enemies:
-		$Gate.visible  = false;
+		$Gate.visible  = false
+		$Gate/StaticBody2D/CollisionShape2D.disabled = true
 		$Player/HUD/DoorLabel.show()
 		
 
