@@ -1,5 +1,5 @@
-extends Sprite
 class_name Item
+extends Sprite
 
 
 var potion := load("res://assets/Items/potion_full.png")
@@ -19,7 +19,13 @@ var rank := "null"
 
 export var area_type := "item"
 
+
 onready var player := get_node("../Player")
+
+
+func _on_Area2D_area_entered(area):
+	if area == player.get_current_weapon():
+		collect()
 
 
 func set_item(new_type, new_rank):
@@ -50,11 +56,6 @@ func set_item(new_type, new_rank):
 			texture = iron_longsword
 		else:
 			texture = gold_longsword
-
-
-func _on_Area2D_area_entered(area):
-	if area == player.get_current_weapon():
-		collect()
 
 
 func collect():

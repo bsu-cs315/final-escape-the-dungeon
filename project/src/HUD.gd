@@ -3,6 +3,7 @@ extends Control
 
 const KEY_OUTLINE := "res://assets/Items/key_outline.png"
 const KEY_TEXTURED := "res://assets/Items/key.png"
+const INDEX := 100
 
 
 func _on_RestartButton_pressed():
@@ -27,5 +28,5 @@ func update_key_count(value):
 	particles.texture = load("res://assets/Items/key_particle.png")
 	particles.position = $KeyLogo.position
 	particles.emitting = true
-	particles.z_index = 100
+	particles.z_index = INDEX
 	get_parent().call_deferred("add_child", particles)
