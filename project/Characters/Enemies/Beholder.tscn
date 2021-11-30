@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://assets/Enemies/Beholder/walk_3.png" type="Texture" id=1]
-[ext_resource path="res://assets/Enemies/Beholder/walk_2.png" type="Texture" id=2]
-[ext_resource path="res://assets/Enemies/Beholder/front.png" type="Texture" id=3]
-[ext_resource path="res://assets/Enemies/Beholder/angry.png" type="Texture" id=4]
-[ext_resource path="res://assets/Enemies/Beholder/dead.png" type="Texture" id=5]
-[ext_resource path="res://assets/Enemies/Beholder/hurt.png" type="Texture" id=6]
-[ext_resource path="res://assets/Enemies/Beholder/idle.png" type="Texture" id=7]
-[ext_resource path="res://assets/Enemies/Beholder/walk_1.png" type="Texture" id=8]
-[ext_resource path="res://assets/Enemies/deathMonsterconverted.wav" type="AudioStream" id=9]
-[ext_resource path="res://src/Beholder.gd" type="Script" id=10]
+[ext_resource path="res://Characters/Enemies/Beholder/idle.png" type="Texture" id=1]
+[ext_resource path="res://Characters/Enemies/Beholder/walk_1.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Enemies/Beholder/walk_2.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Enemies/Beholder/front.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Enemies/Beholder/angry.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Enemies/Beholder/dead.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Enemies/Beholder/walk_3.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Enemies/Beholder.gd" type="Script" id=8]
+[ext_resource path="res://Characters/Enemies/deathMonsterconverted.wav" type="AudioStream" id=9]
+[ext_resource path="res://Characters/Enemies/Beholder/hurt.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 28.5063
@@ -19,34 +19,34 @@ radius = 28.6053
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "attack",
-"speed": 0.5
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "killed",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "hurt",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 0.5
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "killed",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
 "speed": 1.0
 } ]
 
 [node name="Beholder" type="KinematicBody2D"]
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.75, 0 )

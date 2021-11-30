@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
+"base": "Reference",
 "class": "Item",
 "language": "GDScript",
-"path": "res://src/Item.gd"
+"path": "res://Levels/Main/Item.gd"
 } ]
 _global_script_class_icons={
 "Item": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Escape-The-Dungeon"
-run/main_scene="res://src/TitleScreen.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

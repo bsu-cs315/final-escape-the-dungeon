@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://src/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/Player/walk.png" type="Texture" id=2]
-[ext_resource path="res://assets/Player/normal.png" type="Texture" id=3]
-[ext_resource path="res://assets/Player/hit.png" type="Texture" id=4]
-[ext_resource path="res://assets/Player/killed.png" type="Texture" id=5]
-[ext_resource path="res://assets/Player/attack.png" type="Texture" id=6]
-[ext_resource path="res://src/Inventory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/HUD.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/Camera2D.gd" type="Script" id=9]
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Player/walk.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Player/normal.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Player/hit.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Player/killed.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Player/attack.png" type="Texture" id=6]
+[ext_resource path="res://Levels/Main/Inventory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/HUD/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Characters/Player/Camera2D.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
