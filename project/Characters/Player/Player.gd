@@ -12,9 +12,9 @@ export var health := 5.00
 export var key_count := 0
 
 
-var primary_weapon := load("res://src/Shortsword.tscn")
+var primary_weapon := load("res://Characters/Player/Shortsword.tscn")
 var primary_weapon_rank := "Normal"
-var secondary_weapon := load("res://src/Bow.tscn")
+var secondary_weapon := load("res://Characters/Player/Bow.tscn")
 var secondary_weapon_rank := "Normal"
 var current_weapon 
 var is_active := true
@@ -136,7 +136,7 @@ func remove_weapon():
 
 
 func spawn_arrow(damage):
-	var arrow = load("res://src/Arrow.tscn").instance()
+	var arrow = load("res://Characters/Player/Arrow.tscn").instance()
 	get_parent().call_deferred("add_child", arrow)
 	arrow.damage = damage
 	arrow.fire(position, angle_facing)
@@ -178,29 +178,29 @@ func collect_item(item_type, item_rank):
 	if item_type == "Potion":
 		health = clamp(health + POTION_HEALTH, 0.00, max_health)
 		bar.value = health
-		spawn_particles("res://assets/Items/potion_particle.png")
+		spawn_particles("res://Characters/Player/ArrowParticles.tscn")
 	elif item_type == "Key":
 		key_count += 1
 		$HUD.update_key_count(key_count)
 	elif item_type == "Bow":
 		drop_item()
-		primary_weapon = load("res://src/Bow.tscn")
+		primary_weapon = load("res://Characters/Player/Bow.tscn")
 		primary_weapon_rank = item_rank
 		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Shortsword":
 		drop_item()
-		primary_weapon = load("res://src/Shortsword.tscn")
+		primary_weapon = load("res://Characters/Player/Shortsword.tscn")
 		primary_weapon_rank = item_rank
 		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 	elif item_type == "Longsword":
 		drop_item()
-		primary_weapon = load("res://src/Longsword.tscn")
+		primary_weapon = load("res://Characters/Player/Longsword.tscn")
 		primary_weapon_rank = item_rank
 		$HUD.update_weapons(initialize_weapon(primary_weapon, primary_weapon_rank), initialize_weapon(secondary_weapon, secondary_weapon_rank), true)
 
 
 func drop_item():
-	var item = load("res://src/Item.tscn").instance()
+	var item = load("res://Levels/Main/Item.tscn").instance()
 	item.set_item(primary_weapon.instance().weapon_type, primary_weapon_rank)
 	item.position = position
 	current_weapon.queue_free()
@@ -219,7 +219,7 @@ func switch_weapon():
 
 
 func spawn_particles(par_tex):
-	var particles = load("res://src/ArrowParticles.tscn").instance()
+	var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
 	particles.texture = load(par_tex)
 	particles.position = position
 	particles.emitting = true

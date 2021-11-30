@@ -10,11 +10,11 @@ func _on_ResumeButton_pressed():
 
 
 func _on_RestartButton_pressed():
-	var _ignored = get_tree().change_scene("res://src/Level.tscn")
+	var _ignored = get_tree().change_scene("res://Levels/Main/Level.tscn")
 
 
 func _on_TitleButton_pressed():
-	var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
+	var _ignored = get_tree().change_scene("res://Levels/TitleScreen.tscn")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

@@ -2,17 +2,17 @@ class_name Item
 extends Sprite
 
 
-var potion := load("res://assets/Items/potion_full.png")
-var key := load("res://assets/Items/key.png")
-var shortsword := load("res://assets/Swords/shortsword.png")
-var iron_shortsword := load("res://assets/Swords/iron_shortsword.png")
-var gold_shortsword := load("res://assets/Swords/golden_shortsword.png")
-var longsword := load("res://assets/Swords/longsword.png")
-var iron_longsword := load("res://assets/Swords/iron_longsword.png")
-var gold_longsword := load("res://assets/Swords/golden_longsword.png")
-var bow := load("res://assets/Bows/bow.png")
-var iron_bow := load("res://assets/Bows/iron_bow.png")
-var gold_bow := load("res://assets/Bows/gold_bow.png")
+var potion := load("res://Levels/Main/Items/potion_full.png")
+var key := load("res://Levels/Main/Items/key.png")
+var shortsword := load("res://Characters/Player/Swords/shortsword.png")
+var iron_shortsword := load("res://Characters/Player/Swords/iron_shortsword.png")
+var gold_shortsword := load("res://Characters/Player/Swords/golden_shortsword.png")
+var longsword := load("res://Characters/Player/Swords/longsword.png")
+var iron_longsword := load("res://Characters/Player/Swords/iron_longsword.png")
+var gold_longsword := load("res://Characters/Player/Swords/golden_longsword.png")
+var bow := load("res://Characters/Player/Bows/bow.png")
+var iron_bow := load("res://Characters/Player/Bows/iron_bow.png")
+var gold_bow := load("res://Characters/Player/Bows/gold_bow.png")
 var type := "Empty Potion"
 var rank := "null"
 

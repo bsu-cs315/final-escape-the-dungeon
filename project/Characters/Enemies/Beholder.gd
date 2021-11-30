@@ -76,15 +76,15 @@ func take_damage(damage):
 		health -= damage
 		if health <= 0:
 			$AnimatedSprite.play("killed")
-			$sound.stream = load("res://assets/Enemies/deathMonsterconverted.wav")
+			$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
 			$sound.play()
 		else:
 			$AnimatedSprite.play("hurt")
-			$sound.stream = load("res://assets/Enemies/hurtMonstertrimmed.wav")
+			$sound.stream = load("res://Characters/Enemies/hurtMonstertrimmed.wav")
 			$sound.play()
 			if damage == 0:
-				var particles = load("res://src/ArrowParticles.tscn").instance()
-				particles.texture = load("res://assets/Enemies/stun_particle.png")
+				var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
+				particles.texture = load("res://Characters/Enemies/stun_particle.png")
 				particles.position = position
 				particles.emitting = true
 				get_parent().call_deferred("add_child", particles)

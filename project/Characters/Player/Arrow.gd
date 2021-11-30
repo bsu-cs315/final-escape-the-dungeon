@@ -52,7 +52,7 @@ func get_launcher():
 
 
 func spawn_particles():
-	var particles = load("res://src/ArrowParticles.tscn").instance()
+	var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
 	get_parent().call_deferred("add_child", particles)
 	particles.emitting = true
 	particles.position = position
