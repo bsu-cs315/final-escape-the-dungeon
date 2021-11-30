@@ -286,10 +286,10 @@ position = Vector2( 1530.5, 1715.5 )
 shape = SubResource( 10 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -760.0
-margin_top = -593.782
-margin_right = 4320.0
-margin_bottom = 4110.22
+margin_left = -690.0
+margin_top = -750.0
+margin_right = 4390.0
+margin_bottom = 3954.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

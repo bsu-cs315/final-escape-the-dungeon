@@ -6,7 +6,7 @@ const WALL_COLLISION := Vector2(0,0)
 const POTION_HEALTH := 2.00
 
 
-export var speed := 150
+export var speed := 500
 export var max_health := 5.00
 export var health := 5.00
 export var key_count := 0

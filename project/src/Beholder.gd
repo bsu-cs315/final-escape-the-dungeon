@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-const SPEED := 1250
+const SPEED := 1600
 const DISTANCE := Vector2(5000,5000)
 const BEHOLDER_ATTACK_DAMAGE := 2
 
