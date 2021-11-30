@@ -445,7 +445,7 @@ custom_styles/normal = SubResource( 19 )
 text = "What....Wait.....Where am I. 
 The door is locked...
 At least I have my Sword and Bow
- I hear monsters commng"
+ I hear monsters coming"
 readonly = true
 __meta__ = {
 "_edit_use_anchors_": false
