@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Sprite",
+"base": "Reference",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Levels/Main/Item.gd"
+"path": "res://Levels/Main/Items/Item.gd"
 } ]
 _global_script_class_icons={
 "Item": ""

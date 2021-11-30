@@ -1,15 +1,14 @@
 extends KinematicBody2D
 
 
-const SPEED := 1600
-const DISTANCE := Vector2(5000,5000)
-const BEHOLDER_ATTACK_DAMAGE := 2
-
-
 export var health := 1
+export var attack_strength :=2
+export var speed := 1600
+export var distance_range := 5000
 
 
 var velocity := Vector2()
+var distance := Vector2(distance_range,distance_range)
 
 
 var _is_hurt := false
@@ -23,15 +22,15 @@ onready var player := get_node("../Player")
 func _process(_delta):
 	if _is_hurt or _is_attacking or _is_paused:
 		velocity = Vector2.ZERO
-	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
+	elif player.position.x <= distance.x and player.position.y <= distance.y:
 		if player.position.x > position.x:
-			velocity.x += SPEED
+			velocity.x += speed
 		if player.position.x < position.x:
-			velocity.x -= SPEED
+			velocity.x -= speed
 		if player.position.y > position.y:
-			velocity.y += SPEED
+			velocity.y += speed
 		if player.position.y < position.y:
-			velocity.y -= SPEED
+			velocity.y -= speed
 		$AnimatedSprite.play("walk")
 	else:
 		velocity = Vector2.ZERO
@@ -68,7 +67,7 @@ func attack():
 	if not _is_attacking and not _is_hurt:
 		_is_attacking = true
 		$AnimatedSprite.play("attack")
-		player.take_damage(BEHOLDER_ATTACK_DAMAGE)
+		player.take_damage(attack_strength)
 
 
 func take_damage(damage):
