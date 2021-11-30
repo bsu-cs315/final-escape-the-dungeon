@@ -23,8 +23,8 @@ export var area_type := "item"
 onready var player := get_node("../Player")
 
 
-func _on_Area2D_area_entered(area):
-	if area == player.get_current_weapon():
+func _on_Area2D_body_entered(body):
+	if body == player:
 		collect()
 
 

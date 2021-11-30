@@ -35,3 +35,8 @@ func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
 func hide_inventory():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("close")
+
+
+func _on_HowToPlay_pressed():
+	print('press')
+	$InstructionsPopup.popup()

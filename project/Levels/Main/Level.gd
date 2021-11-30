@@ -4,6 +4,8 @@ extends Node2D
 func _ready():
 	$Item.set_item("Potion", "null")
 	$Item2.set_item("Key", "null")
+	$IntroPopup.popup()
+	get_tree().paused = true
 
 
 func _process(_delta):
@@ -34,3 +36,7 @@ func _on_Dungeon_body_exited(body):
 func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
+
+
+func _on_IntroPopup_popup_hide():
+	get_tree().paused = false;

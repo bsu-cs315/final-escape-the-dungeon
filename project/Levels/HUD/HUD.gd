@@ -7,7 +7,7 @@ const INDEX := 100
 
 
 func _on_RestartButton_pressed():
-	 var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
+	 var _ignored = get_tree().change_scene("res://Levels/TitleScreen.tscn")
 
 
 func update_weapons(primary_weapon, secondary_weapon, is_switch):

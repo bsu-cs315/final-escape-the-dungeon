@@ -133,6 +133,9 @@ margin_bottom = 130.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 8 )
 text = "How To Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TextEdit" type="TextEdit" parent="InstructionsPopup"]
 margin_left = 227.0
@@ -145,7 +148,8 @@ custom_styles/read_only = SubResource( 9 )
 custom_styles/normal = SubResource( 10 )
 text = "Controls
 Use the arrow keys to move around
-Use the mouse to attack, collect and interact with enemies and objects
+Use the mouse to attack, collect and interact with chests
+Run over items to collect
 Click the backback (top left) or press E to access inventory
 Click the weapons (bottom right) to change weapons
 
