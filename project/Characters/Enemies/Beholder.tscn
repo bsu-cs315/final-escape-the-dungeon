@@ -19,30 +19,30 @@ radius = 28.6053
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ],
 "loop": true,
-"name": "walk",
-"speed": 2.0
+"name": "default",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "hurt",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "attack",
-"speed": 0.5
+"name": "walk",
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "killed",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "default",
-"speed": 1.0
+"name": "attack",
+"speed": 0.5
 } ]
 
 [node name="Beholder" type="KinematicBody2D"]
@@ -65,11 +65,12 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walk"
-frame = 1
+frame = 2
 playing = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+bus = "Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

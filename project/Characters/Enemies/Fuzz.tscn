@@ -19,15 +19,10 @@ height = 11.8597
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "hurt 2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "attack",
-"speed": 0.5
+"name": "default",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -44,10 +39,15 @@ animations = [ {
 "name": "killed",
 "speed": 0.5
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "default",
-"speed": 1.0
+"name": "attack",
+"speed": 0.5
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "hurt 2",
+"speed": 5.0
 } ]
 
 [node name="Fuzz" type="KinematicBody2D"]
@@ -75,6 +75,7 @@ playing = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+bus = "Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
