@@ -65,7 +65,7 @@ shape = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "walk"
-frame = 1
+frame = 2
 playing = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]

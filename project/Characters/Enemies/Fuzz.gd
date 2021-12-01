@@ -1,15 +1,17 @@
 extends KinematicBody2D
 
 
-const SPEED := 1800
-const DISTANCE := Vector2(5000,5000)
+const SPEED := 2500
+const DISTANCE := Vector2(500,500)
 const FUZZ_ATTACK_DAMAGE := 1
+const FUZZ_VELOCITY_BUFFER := 60
 
 
 export var health := 3
 
 
 var velocity := Vector2()
+var previous_velocity := Vector2.ZERO
 
 
 var _is_hurt := false
@@ -23,7 +25,8 @@ onready var player := get_node("../Player")
 func _process(_delta):
 	if _is_hurt or _is_attacking or _is_paused:
 		velocity = Vector2.ZERO
-	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
+	elif player.position.x <= position.x + DISTANCE.x and player.position.y <= position.y + DISTANCE.y:
+		previous_velocity = velocity
 		if player.position.x > position.x:
 			velocity.x += SPEED
 		if player.position.x < position.x:
@@ -36,10 +39,11 @@ func _process(_delta):
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite.play("default")
-	if velocity.x < 0:
-		$AnimatedSprite.scale.x = 1
-	elif velocity.x > 0:
-		$AnimatedSprite.scale.x = -1
+	if previous_velocity.x > FUZZ_VELOCITY_BUFFER or previous_velocity.x < -FUZZ_VELOCITY_BUFFER:
+		if velocity.x < 0:
+			$AnimatedSprite.scale.x = 1
+		elif velocity.x > 0:
+			$AnimatedSprite.scale.x = -1
 
 
 func _physics_process(delta):

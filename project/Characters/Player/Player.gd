@@ -182,6 +182,8 @@ func collect_item(item_type, item_rank):
 	elif item_type == "Key":
 		key_count += 1
 		$HUD.update_key_count(key_count)
+	elif item_type == "Hat":
+		$AnimatedSprite/Hat.visible = true
 	elif item_type == "Bow":
 		drop_item()
 		primary_weapon = load("res://Characters/Player/Bow.tscn")

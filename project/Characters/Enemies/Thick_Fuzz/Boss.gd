@@ -1,15 +1,17 @@
 extends KinematicBody2D
 
 
-const SPEED := 1800
-const DISTANCE := Vector2(5000,5000)
-const FUZZ_ATTACK_DAMAGE := 1
+const SPEED := 3200
+const DISTANCE := Vector2(1000,1000)
+const BOSS_ATTACK_DAMAGE := 2
+const BOSS_VELOCITY_BUFFER := 60
 
 
-export var health := 3
+export var health := 15
 
 
 var velocity := Vector2()
+var previous_velocity := Vector2.ZERO
 
 
 var _is_hurt := false
@@ -23,7 +25,8 @@ onready var player := get_node("../Player")
 func _process(_delta):
 	if _is_hurt or _is_attacking or _is_paused:
 		velocity = Vector2.ZERO
-	elif player.position.x <= DISTANCE.x and player.position.y <= DISTANCE.y:
+	elif player.position.x <= position.x + DISTANCE.x and player.position.y <= position.y + DISTANCE.y:
+		previous_velocity = velocity
 		if player.position.x > position.x:
 			velocity.x += SPEED
 		if player.position.x < position.x:
@@ -36,10 +39,11 @@ func _process(_delta):
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite.play("default")
-	if velocity.x < 0:
-		$AnimatedSprite.scale.x = 1
-	elif velocity.x > 0:
-		$AnimatedSprite.scale.x = -1
+	if previous_velocity.x > BOSS_VELOCITY_BUFFER or previous_velocity.x < -BOSS_VELOCITY_BUFFER:
+		if velocity.x < 0:
+			$AnimatedSprite.scale.x = 1
+		elif velocity.x > 0:
+			$AnimatedSprite.scale.x = -1
 
 
 func _physics_process(delta):
@@ -67,7 +71,7 @@ func _on_Area2D_body_entered(body):
 func attack():
 	if not _is_attacking and not _is_hurt:
 		$AnimatedSprite.play("attack")
-		player.take_damage(FUZZ_ATTACK_DAMAGE)
+		player.take_damage(BOSS_ATTACK_DAMAGE)
 		_is_attacking = true
 
 
@@ -78,10 +82,14 @@ func take_damage(damage):
 			$AnimatedSprite.play("killed")
 			$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
 			$sound.play()
+			var hat = load("res://Levels/Main/Item.tscn").instance()
+			hat.set_item("Hat", "null")
+			hat.position = position
+			get_parent().call_deferred("add_child", hat)
 		else:
 			$sound.stream = load("res://Characters/Enemies/hurtMonstertrimmed.wav")
 			$sound.play()
-			if health == 1:
+			if health <= 5:
 				$AnimatedSprite.play("hurt 2") 
 			else:
 				$AnimatedSprite.play("hurt")
