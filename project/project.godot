@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Sprite",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Levels/Main/Item.gd"
+"path": "res://Levels/Main/Items/Item.gd"
 } ]
 _global_script_class_icons={
 "Item": ""

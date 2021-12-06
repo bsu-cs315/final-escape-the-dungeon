@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Characters/Enemies/Fuzz.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Enemies/Fuzz/normal.png" type="Texture" id=2]
 [ext_resource path="res://Characters/Enemies/Fuzz/hurt_2.png" type="Texture" id=3]
 [ext_resource path="res://Characters/Enemies/Fuzz/hurt_1.png" type="Texture" id=4]
@@ -24,30 +24,30 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "attack",
+"name": "killed",
 "speed": 0.5
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "hurt 2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "hurt",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "killed",
-"speed": 0.5
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "hurt 2",
-"speed": 5.0
+"name": "attack",
+"speed": 0.5
 } ]
 
 [node name="Fuzz" type="KinematicBody2D"]

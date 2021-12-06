@@ -7,7 +7,7 @@
 [ext_resource path="res://Characters/Enemies/Beholder/angry.png" type="Texture" id=5]
 [ext_resource path="res://Characters/Enemies/Beholder/dead.png" type="Texture" id=6]
 [ext_resource path="res://Characters/Enemies/Beholder/walk_3.png" type="Texture" id=7]
-[ext_resource path="res://Characters/Enemies/Beholder.gd" type="Script" id=8]
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=8]
 [ext_resource path="res://Characters/Enemies/deathMonsterconverted.wav" type="AudioStream" id=9]
 [ext_resource path="res://Characters/Enemies/Beholder/hurt.png" type="Texture" id=10]
 
@@ -24,25 +24,25 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "attack",
-"speed": 0.5
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "hurt",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "killed",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "attack",
+"speed": 0.5
 } ]
 
 [node name="Beholder" type="KinematicBody2D"]

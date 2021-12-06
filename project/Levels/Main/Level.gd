@@ -18,7 +18,7 @@ func _process(_delta):
 
 func _on_Chest_open(chest):
 	var position = chest.position
-	var new_item: Item = load("res://Levels/Main/Item.tscn").instance()
+	var new_item: Item = load("res://Levels/Main/Items/Item.tscn").instance()
 	new_item.set_item("Potion", "null")
 	new_item.position = position
 	call_deferred("remove_child", chest)
