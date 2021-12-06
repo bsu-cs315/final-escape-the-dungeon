@@ -5,6 +5,7 @@ export var health := 1
 export var attack_strength :=2
 export var speed := 1600
 export var distance_range := 5000
+export var velocity_buffer := 500
 
 
 var velocity := Vector2()
@@ -37,7 +38,7 @@ func _process(_delta):
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite.play("default")
-	if previous_velocity.x > BEHOLDER_VELOCITY_BUFFER or previous_velocity.x < -BEHOLDER_VELOCITY_BUFFER:
+	if previous_velocity.x > velocity_buffer or previous_velocity.x < -velocity_buffer:
 		if velocity.x < 0:
 			$AnimatedSprite.scale.x = 1
 		elif velocity.x > 0:

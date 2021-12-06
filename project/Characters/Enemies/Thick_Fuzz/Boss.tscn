@@ -7,7 +7,7 @@
 [ext_resource path="res://Characters/Enemies/deathMonsterconverted.wav" type="AudioStream" id=5]
 [ext_resource path="res://Characters/Enemies/Thick_Fuzz/killed.png" type="Texture" id=6]
 [ext_resource path="res://Characters/Enemies/Thick_Fuzz/normal.png" type="Texture" id=7]
-[ext_resource path="res://Characters/Enemies/Thick_Fuzz/Boss.gd" type="Script" id=8]
+[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 51.9641
@@ -19,10 +19,10 @@ height = 44.5813
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "default",
-"speed": 1.0
+"name": "killed",
+"speed": 0.5
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -34,11 +34,6 @@ animations = [ {
 "name": "hurt",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "killed",
-"speed": 0.5
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk",
@@ -48,6 +43,11 @@ animations = [ {
 "loop": true,
 "name": "hurt 2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
 } ]
 
 [node name="Boss" type="KinematicBody2D"]

@@ -82,7 +82,7 @@ func take_damage(damage):
 			$AnimatedSprite.play("killed")
 			$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
 			$sound.play()
-			var hat = load("res://Levels/Main/Item.tscn").instance()
+			var hat = load("res://Levels/Main/Items/Item.tscn").instance()
 			hat.set_item("Hat", "null")
 			hat.position = position
 			get_parent().call_deferred("add_child", hat)
