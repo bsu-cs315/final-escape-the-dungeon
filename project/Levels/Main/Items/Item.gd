@@ -13,6 +13,7 @@ var gold_longsword := load("res://Characters/Player/Swords/golden_longsword.png"
 var bow := load("res://Characters/Player/Bows/bow.png")
 var iron_bow := load("res://Characters/Player/Bows/iron_bow.png")
 var gold_bow := load("res://Characters/Player/Bows/gold_bow.png")
+var hat := load("res://Levels/Main/Items/hat.png")
 var type := "Empty Potion"
 var rank := "null"
 
@@ -33,6 +34,8 @@ func set_item(new_type, new_rank):
 	rank = new_rank
 	if type == "Potion":
 		texture = potion
+	elif type == "Hat":
+		texture = hat
 	elif type == "Key":
 		texture = key
 	elif type == "Bow":

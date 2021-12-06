@@ -74,6 +74,7 @@ playing = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+bus = "Effects"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
