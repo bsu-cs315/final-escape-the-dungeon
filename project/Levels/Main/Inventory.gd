@@ -22,14 +22,13 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		visible = false
 
 
-func show_inventory(primary_weapon, secondary_weapon, health_amount, key_count):
+func show_inventory(primary_weapon, secondary_weapon, health_amount):
 	visible = true
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("open")
 	$PrimaryWeapon.texture = primary_weapon.get_texture()
 	$SecondaryWeapon.texture = secondary_weapon.get_texture()
 	$HealthLabel.text = str(health_amount) + "/5"
-	$KeyLabel.text = "x" + str(key_count)
 
 
 func hide_inventory():

@@ -19,8 +19,7 @@ func update_weapons(primary_weapon, secondary_weapon, is_switch):
 
 
 func update_key_count(value):
-	$KeyLabel.text = "x" + str(value)
-	if value == 0:
+	if value == false:
 		$KeyLogo.texture = load(KEY_OUTLINE)
 	else:
 		$KeyLogo.texture = load(KEY_TEXTURED)

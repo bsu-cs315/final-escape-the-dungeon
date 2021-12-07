@@ -10,9 +10,10 @@ func _ready():
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
 	if no_enemies:
-		$Gate.visible  = false
-		$Gate/StaticBody2D/CollisionShape2D.disabled = true
-		$Player/HUD/DoorLabel.show()
+		#$Gate.visible  = false
+		#$Gate/StaticBody2D/CollisionShape2D.disabled = true
+		#$Player/HUD/DoorLabel.show()
+		pass
 
 
 func _on_Chest_open(chest):
@@ -32,10 +33,19 @@ func _on_Dungeon_body_exited(body):
 		$Player/HUD/EndMessage.visible = true
 
 
+func _on_IntroPopup_popup_hide():
+	get_tree().paused = false;
+
+
+func _on_GateArea_body_entered(body):
+	if body == $Player:
+		if $Player.has_key:
+			$Gate.queue_free()
+
+
 func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
 
 
-func _on_IntroPopup_popup_hide():
-	get_tree().paused = false;
+
