@@ -32,7 +32,7 @@ outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "close"
 length = 0.5
 tracks/0/type = "value"
@@ -60,8 +60,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "open"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -100,17 +99,6 @@ margin_right = 379.397
 margin_bottom = 426.728
 custom_fonts/font = SubResource( 1 )
 text = "5/5"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="KeyLabel" type="Label" parent="."]
-margin_left = 262.397
-margin_top = 441.733
-margin_right = 320.397
-margin_bottom = 492.733
-custom_fonts/font = SubResource( 1 )
-text = "x0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -194,8 +182,8 @@ custom_fonts/font = SubResource( 3 )
 text = "Title"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 5 )
-anims/open = SubResource( 4 )
+anims/close = SubResource( 4 )
+anims/open = SubResource( 5 )
 
 [node name="MasterSlider" type="HSlider" parent="."]
 margin_left = 563.511

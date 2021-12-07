@@ -9,7 +9,7 @@ const POTION_HEALTH := 2.00
 export var speed := 500
 export var max_health := 5.00
 export var health := 5.00
-export var key_count := 0
+export var has_key := false
 
 
 var primary_weapon := load("res://Characters/Player/Shortsword.tscn")
@@ -105,11 +105,11 @@ func get_current_weapon():
 	return current_weapon
 	
 func get_key_count():
-	return key_count
+	return has_key
 	
 func use_key():
-	key_count -= 1
-	$HUD.update_key_count(key_count)
+	has_key = false
+	$HUD.update_key_count(has_key)
 	current_weapon.queue_free()
 	remove_weapon()
 
@@ -158,7 +158,7 @@ func pause():
 	get_parent().pause_enemies(true)
 	$AnimatedSprite.play("idle")
 	$HUD.visible = false
-	$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health, key_count)
+	$Inventory.show_inventory(primary_weapon.instance(), secondary_weapon.instance(), health)
 
 
 func unpause():
@@ -180,8 +180,8 @@ func collect_item(item_type, item_rank):
 		bar.value = health
 		spawn_particles("res://Characters/Player/ArrowParticles.tscn")
 	elif item_type == "Key":
-		key_count += 1
-		$HUD.update_key_count(key_count)
+		has_key = true
+		$HUD.update_key_count(has_key)
 	elif item_type == "Hat":
 		$AnimatedSprite/Hat.visible = true
 	elif item_type == "Bow":

@@ -47,7 +47,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1.45, 1.45 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=7]
 size = 26
 font_data = ExtResource( 1 )
 
@@ -108,10 +108,10 @@ margin_left = -76.368
 margin_top = 72.293
 margin_right = 75.632
 margin_bottom = 114.293
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 custom_styles/hover = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Return To Title Screen"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -139,17 +139,6 @@ texture = ExtResource( 3 )
 position = Vector2( 319, -230 )
 texture = ExtResource( 5 )
 
-[node name="KeyLabel" type="Label" parent="."]
-margin_left = 371.0
-margin_top = -255.0
-margin_right = 429.0
-margin_bottom = -204.0
-custom_fonts/font = SubResource( 1 )
-text = "x0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="inventory" type="Sprite" parent="."]
 position = Vector2( -409, -240 )
 texture = ExtResource( 6 )
@@ -163,7 +152,7 @@ margin_left = -114.0
 margin_top = 199.0
 margin_right = 183.0
 margin_bottom = 240.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 text = "The Door Has Opened"
 __meta__ = {
 "_edit_use_anchors_": false
