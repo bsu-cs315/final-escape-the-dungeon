@@ -1,5 +1,4 @@
-
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Levels/Main/Items/Item.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Main/Items/Chest.tscn" type="PackedScene" id=2]
@@ -275,96 +274,14 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 } ]
 11/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 3.59, 4.29 )
+
 [sub_resource type="CircleShape2D" id=19]
 radius = 47.5845
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32.6893, 32.2035 )
-
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.803922, 0.784314, 0.784314, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id=13]
-bg_color = Color( 0, 0, 0, 0.180392 )
-
-[sub_resource type="StyleBoxFlat" id=14]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-
-
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[sub_resource type="TileSet" id=13]
-0/name = "ceiling_blank.png 0"
-0/texture = ExtResource( 26 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 12 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 12 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
-1/name = "floor_wall.png 1"
-1/texture = ExtResource( 32 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "floor_wall_corner_out.png 2"
-2/texture = ExtResource( 31 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 0, 0, 64, 64 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "floor_wall_corner_in.png 3"
-3/texture = ExtResource( 24 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 64, 64 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 30.6514, 30.8617 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 22 )
@@ -376,10 +293,10 @@ position = Vector2( 1530.5, 1715.5 )
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -594.0
-margin_top = -743.0
-margin_right = 4486.0
-margin_bottom = 3961.0
+margin_left = -872.0
+margin_top = -711.0
+margin_right = 4208.0
+margin_bottom = 3993.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -395,17 +312,16 @@ position = Vector2( 2351, -453 )
 scale = Vector2( 100, 100 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea"]
-visible = false
-position = Vector2( 2.2525, 11.205 )
-shape = SubResource( 14 )
+position = Vector2( 2.32, 11.12 )
+shape = SubResource( 20 )
 
 [node name="BossWall" type="TileMap" parent="."]
 visible = false
-tile_set = SubResource( 13 )
+tile_set = SubResource( 10 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 131105, -1610612736, 0, 196641, 0, 0, 262176, -1610612733, 0, 262177, 0, 0, 262178, 3, 0, 327712, 1610612737, 0, 327713, 0, 0, 327714, 1, 0, 393248, 1610612737, 0, 393249, 0, 0, 393250, 1, 0, 458784, 1610612737, 0, 458785, 0, 0, 458786, 1, 0, 524320, 1610612737, 0, 524321, 0, 0, 524322, 1, 0, 589857, 0, 0, 589858, 1, 0, 655393, 0, 0, 655394, 1, 0, 720928, -1610612733, 0, 720929, 0, 0, 720930, 1, 0, 786464, 1610612737, 0, 786465, 0, 0, 786466, 1, 0, 852000, 1610612737, 0, 852001, 0, 0, 852002, 1, 0, 917536, 1610612737, 0, 917538, 1, 0 )
+tile_data = PoolIntArray( 131105, 10, 0, 196641, 0, 0, 196642, 4, 0, 262176, -1610612730, 0, 262177, 0, 0, 262178, 6, 0, 327712, 1610612743, 0, 327713, 0, 0, 327714, 7, 0, 393248, 1610612743, 0, 393249, 0, 0, 393250, 7, 0, 458784, 1610612743, 0, 458785, 0, 0, 458786, 7, 0, 524320, 1610612743, 0, 524321, 0, 0, 524322, 7, 0, 589857, 0, 0, 589858, 7, 0, 655393, 0, 0, 655394, 7, 0, 720928, -1610612730, 0, 720929, 0, 0, 720930, 7, 0, 786464, 1610612743, 0, 786465, 0, 0, 786466, 7, 0, 852000, 1610612743, 0, 852001, 0, 0, 852002, 7, 0, 917536, 1610612743, 0, 917538, 7, 0 )
 
 [node name="Fuzz" parent="." groups=["Enemies"] instance=ExtResource( 18 )]
 position = Vector2( 1584.31, 2490.97 )
@@ -418,7 +334,8 @@ health = 3
 attack_strength = 1
 
 [node name="Player" parent="." instance=ExtResource( 19 )]
-position = Vector2( 1614, 2958 )
+position = Vector2( 2172, 347 )
+health = 500.0
 
 [node name="Fuzz3" parent="." groups=["Enemies"] instance=ExtResource( 18 )]
 position = Vector2( 956.916, 1784.36 )
@@ -511,22 +428,17 @@ shape = SubResource( 19 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="Gate"]
 
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/KinematicBody2D"]
-
 scale = Vector2( 2, 2 )
 shape = SubResource( 11 )
 
 [node name="Boss" parent="." groups=["Enemies"] instance=ExtResource( 5 )]
-position = Vector2( 2727, 490 )
-health = 15
+position = Vector2( 2836, 318 )
 max_health = 15
+distance_range = 600
 
 [connection signal="body_exited" from="Dungeon" to="." method="_on_Dungeon_body_exited"]
 [connection signal="body_entered" from="BossArea" to="." method="_on_BossArea_body_entered"]
 [connection signal="body_exited" from="BossArea" to="." method="_on_BossArea_body_exited"]
 [connection signal="open" from="Chest" to="." method="_on_Chest_open"]
-
 [connection signal="body_entered" from="Gate/GateArea" to="." method="_on_GateArea_body_entered"]
-[connection signal="popup_hide" from="IntroPopup" to="." method="_on_IntroPopup_popup_hide"]
-

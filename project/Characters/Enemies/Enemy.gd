@@ -24,7 +24,7 @@ onready var player := get_node("../Player")
 func _process(_delta):
 	if _is_hurt or _is_attacking:
 		velocity = Vector2.ZERO
-	elif not _is_paused and player.position.x <= position.x + distance_range and player.position.y <= position.y + distance_range:
+	elif not _is_paused and abs(player.position.x - position.x) <= distance_range and abs(player.position.y - position.y) <= distance_range:
 		previous_velocity = velocity
 		if player.position.x > position.x:
 			velocity.x += speed
