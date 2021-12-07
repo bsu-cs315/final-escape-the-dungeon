@@ -1,11 +1,11 @@
 extends Node2D
 
 
+var does_boss_exist := true
+
+
 func _ready():
 	$Item.set_item("Potion", "null")
-	$IntroPopup.popup()
-	get_tree().paused = true
-
 
 func _process(_delta):
 	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
@@ -37,5 +37,16 @@ func pause_enemies(value):
 		enemy.pause(value)
 
 
-func _on_IntroPopup_popup_hide():
-	get_tree().paused = false;
+func _on_BossArea_body_entered(body):
+	if body.name == 'Player' and does_boss_exist:
+		$BossWall.visible = true;
+		$BossWall.set_collision_mask(1)
+		$BossWall.set_collision_layer(1)
+
+
+func _on_BossArea_body_exited(body):
+	if body.name == 'Boss':
+		$BossWall.queue_free()
+		does_boss_exist = false
+		
+		

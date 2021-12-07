@@ -119,6 +119,7 @@ __meta__ = {
 position = Vector2( 286.939, 244.464 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="PrimaryWeapon" type="Sprite" parent="."]
