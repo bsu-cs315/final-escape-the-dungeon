@@ -80,16 +80,27 @@ func _on_AnimatedSprite_animation_finished():
 
 func _on_InventoryButton_toggled(button_pressed):
 	if button_pressed:
-		is_clicking_button = true
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
 		pause()
 	else:
 		unpause()
-		is_clicking_button = false
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
 
-
-func _on_WeaponButton_pressed():
-	is_clicking_button = true
-	switch_weapon()
+func _on_WeaponButton_toggled(button_pressed):
+	if button_pressed:
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
+		switch_weapon()
+	else:
+		switch_weapon()
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
 
 
 func take_damage(damage):
