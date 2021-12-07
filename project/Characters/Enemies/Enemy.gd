@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 
 export var health := 1
+export var max_health := 3
 export var attack_strength :=2
-export var speed := 1600
-export var distance_range := 5000
+export var speed := 2500
+export var distance_range := 400
 export var velocity_buffer := 500
 
 
 var velocity := Vector2()
-var distance := Vector2(distance_range,distance_range)
 var previous_velocity := Vector2.ZERO
 
 
@@ -22,9 +22,9 @@ onready var player := get_node("../Player")
 
 
 func _process(_delta):
-	if _is_hurt or _is_attacking or _is_paused:
+	if _is_hurt or _is_attacking:
 		velocity = Vector2.ZERO
-	elif player.position.x <= position.x + distance.x and player.position.y <= position.y + distance.y:
+	elif not _is_paused and player.position.x <= position.x + distance_range and player.position.y <= position.y + distance_range:
 		previous_velocity = velocity
 		if player.position.x > position.x:
 			velocity.x += speed
@@ -77,22 +77,40 @@ func attack():
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
+		$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
+		$sound.play()
 		if health <= 0:
 			$AnimatedSprite.play("killed")
-			$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
-			$sound.play()
+			if max_health == 15:
+				spawn_hat()
+				spawn_key()
+		elif health <= max_health / 3.0:
+			$AnimatedSprite.play("hurt 2")
 		else:
 			$AnimatedSprite.play("hurt")
-			$sound.stream = load("res://Characters/Enemies/hurtMonstertrimmed.wav")
-			$sound.play()
-			if damage == 0:
-				var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
-				particles.texture = load("res://Characters/Enemies/stun_particle.png")
-				particles.position = position
-				particles.emitting = true
-				get_parent().call_deferred("add_child", particles)
+		if damage == 0:
+			var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
+			particles.texture = load("res://Characters/Enemies/stun_particle.png")
+			particles.position = position
+			particles.emitting = true
+			get_parent().call_deferred("add_child", particles)
 		_is_hurt = true
 
 
 func pause(value):
 	_is_paused = value
+
+
+func spawn_hat():
+	var hat = load("res://Levels/Main/Items/Item.tscn").instance()
+	hat.set_item("Hat", "null")
+	hat.position = position
+	get_parent().call_deferred("add_child", hat)
+
+
+func spawn_key():
+	var key = load("res://Levels/Main/Items/Item.tscn").instance()
+	key.set_item("Key", "null")
+	key.position = position
+	key.position.y = position.y + 48
+	get_parent().call_deferred("add_child", key)

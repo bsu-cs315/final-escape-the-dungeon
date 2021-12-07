@@ -19,15 +19,25 @@ height = 44.5813
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "killed",
-"speed": 0.5
+"name": "default",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "attack",
 "speed": 0.5
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "killed",
+"speed": 0.5
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "hurt 2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -38,16 +48,6 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 2.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "hurt 2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.0
 } ]
 
 [node name="Boss" type="KinematicBody2D"]
