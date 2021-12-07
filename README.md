@@ -2,7 +2,7 @@
 Repository for final project. Created by Michael Heckman, Cameron Slash, and Lloyd Rowe.
 
 ## Instructions
-Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E or by clicking the backpack icon. Switch weapons by pressing R or clicking the weapons icon. Pick up items on the ground by attacking them/running into them with a bow. Win the game by defeating all the monsters and escaping through the door that opens. 
+Use the arrow keys or wasd to move around. Aim and left-click with the mouse to attack enemies. Stun enemies by running into them with your bow out. Open your inventory with E or by clicking the backpack icon. Switch weapons by pressing R or clicking the weapons icon. Pick up items on the ground by walking over them. Open chests by attacking them. Win the game by getting the key from the boss, and exiting through the gate.
 
 ## Project Report
 
@@ -16,6 +16,7 @@ Pop in the HUD: AnimationPlayer is used in the HUD when both opening/closing the
 AI Control: Enemies are controlled by an AI.
 Pause Menu: Opening the inventory pauses the game and allows for resuming, returning to the title screen, or restarting the game.
 Juciness: The camera shakes when the player is attacked, particles are emitted on occasion, and animations play in the HUD for different scenarios. There is also music and sound.
+Volume: Volume can be changed in the pause menu when pressing E.
 
 We personally believe that this project/iteration deserves an A, based on the following requirements:
 
@@ -42,7 +43,7 @@ We personally believe that this project/iteration deserves an A, based on the fo
 - [ ] ⭐ Use an <code>AnimationTree</code> with either blend spaces (3D) or an animation state machine (2D)
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [ ] ⭐ Support two of the following: touch input, mouse/keyboard input, and gamepad input
-- [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
+- [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [X] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>

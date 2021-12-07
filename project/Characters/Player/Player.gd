@@ -19,6 +19,7 @@ var secondary_weapon_rank := "Normal"
 var current_weapon 
 var is_active := true
 var is_paused := false
+var is_clicking_button := false
 var angle_facing := 0.0000
 
 
@@ -79,12 +80,15 @@ func _on_AnimatedSprite_animation_finished():
 
 func _on_InventoryButton_toggled(button_pressed):
 	if button_pressed:
+		is_clicking_button = true
 		pause()
 	else:
 		unpause()
+		is_clicking_button = false
 
 
 func _on_WeaponButton_pressed():
+	is_clicking_button = true
 	switch_weapon()
 
 
@@ -115,7 +119,7 @@ func use_key():
 
 
 func attack():
-	if not current_weapon:
+	if not current_weapon and not is_clicking_button:
 		_is_attacking = true
 		current_weapon = initialize_weapon(primary_weapon, primary_weapon_rank)
 		call_deferred("add_child", current_weapon)
