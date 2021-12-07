@@ -36,8 +36,9 @@ func _on_Timer_timeout():
 
 
 func _on_Arrow_body_entered(body):
+	print(body.name)
 	if body != get_parent().get_node("Player"):
-		if not body is TileMap:
+		if not body is TileMap and body.name != "GateBody":
 			body.take_damage(damage)
 		spawn_particles()
 		queue_free()
