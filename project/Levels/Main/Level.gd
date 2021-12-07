@@ -7,15 +7,6 @@ func _ready():
 	get_tree().paused = true
 
 
-func _process(_delta):
-	var no_enemies = get_tree().get_nodes_in_group("Enemies").empty()
-	if no_enemies:
-		#$Gate.visible  = false
-		#$Gate/StaticBody2D/CollisionShape2D.disabled = true
-		#$Player/HUD/DoorLabel.show()
-		pass
-
-
 func _on_Chest_open(chest):
 	var position = chest.position
 	var new_item: Item = load("res://Levels/Main/Items/Item.tscn").instance()
@@ -47,6 +38,3 @@ func _on_GateArea_body_entered(body):
 func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
-
-
-
