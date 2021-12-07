@@ -41,6 +41,7 @@ func _on_GateArea_body_entered(body):
 	if body == $Player:
 		if $Player.has_key:
 			$Gate.queue_free()
+			$Player.has_key = false
 
 
 func pause_enemies(value):
