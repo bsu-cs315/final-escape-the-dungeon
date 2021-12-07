@@ -389,6 +389,16 @@ position = Vector2( 1442.15, 1082.99 )
 health = 3
 attack_strength = 1
 
+[node name="Fuzz9" parent="." groups=[
+"Enemies",
+] instance=ExtResource( 18 )]
+position = Vector2( 1327.55, 1429.2 )
+scale = Vector2( 0.5, 0.5 )
+health = 3
+attack_strength = 1
+speed = 6000
+distance_range = 100
+
 [node name="Beholder" parent="." groups=[
 "Enemies",
 ] instance=ExtResource( 20 )]
@@ -438,9 +448,6 @@ bus = "Music"
 
 [node name="Item" parent="." instance=ExtResource( 1 )]
 position = Vector2( 2829, 1042 )
-
-[node name="Item2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1185, 2655 )
 
 [node name="Chest" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1324, 1422 )

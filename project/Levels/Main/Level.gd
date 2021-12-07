@@ -3,7 +3,6 @@ extends Node2D
 
 func _ready():
 	$Item.set_item("Potion", "null")
-	$Item2.set_item("Key", "null")
 	$IntroPopup.popup()
 	get_tree().paused = true
 
