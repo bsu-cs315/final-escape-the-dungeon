@@ -16,11 +16,6 @@ export var weapon_type := "Longsword"
 var type := "Normal"
 
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	get_parent().remove_weapon()
-	queue_free()
-
-
 func update_type(new_type):
 	type = new_type
 	if type == "Golden":
@@ -37,3 +32,8 @@ func attack():
 
 func get_texture():
 	return $CollisionShape2D/Sprite.texture
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	get_parent().remove_weapon()
+	queue_free()

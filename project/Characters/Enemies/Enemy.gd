@@ -52,24 +52,6 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity * delta)
 
 
-func _on_Area2D_area_entered(area):
-	if area == player.get_current_weapon():
-		take_damage(area.damage)
-
-
-func _on_AnimatedSprite_animation_finished():
-	if health <= 0:
-		queue_free()
-	else:
-		_is_hurt = false
-		_is_attacking = false
-
-
-func _on_Area2D_body_entered(body):
-	if body == player:
-		attack()
-
-
 func attack():
 	if not _is_attacking and not _is_hurt:
 		_is_attacking = true
@@ -117,3 +99,21 @@ func spawn_key():
 	key.position = position
 	key.position.y = position.y + KEY_OFFSET
 	get_parent().call_deferred("add_child", key)
+
+
+func _on_Area2D_area_entered(area):
+	if area == player.get_current_weapon():
+		take_damage(area.damage)
+
+
+func _on_AnimatedSprite_animation_finished():
+	if health <= 0:
+		queue_free()
+	else:
+		_is_hurt = false
+		_is_attacking = false
+
+
+func _on_Area2D_body_entered(body):
+	if body == player:
+		attack()

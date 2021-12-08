@@ -75,35 +75,6 @@ func _physics_process(_delta):
 		var _ignored = move_and_slide_with_snap(direction * speed, WALL_COLLISION)
 
 
-func _on_AnimatedSprite_animation_finished():
-	_is_hurt = false
-
-
-func _on_InventoryButton_toggled(button_pressed):
-	if button_pressed:
-		if current_weapon:
-			current_weapon.queue_free()
-			remove_weapon()
-		pause()
-	else:
-		unpause()
-		if current_weapon:
-			current_weapon.queue_free()
-			remove_weapon()
-
-func _on_WeaponButton_toggled(button_pressed):
-	if button_pressed:
-		if current_weapon:
-			current_weapon.queue_free()
-			remove_weapon()
-		switch_weapon()
-	else:
-		switch_weapon()
-		if current_weapon:
-			current_weapon.queue_free()
-			remove_weapon()
-
-
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
@@ -239,3 +210,32 @@ func spawn_particles(par_tex):
 	particles.emitting = true
 	particles.z_index = PARTICLE_INDEX
 	get_parent().call_deferred("add_child", particles)
+
+
+func _on_AnimatedSprite_animation_finished():
+	_is_hurt = false
+
+
+func _on_InventoryButton_toggled(button_pressed):
+	if button_pressed:
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
+		pause()
+	else:
+		unpause()
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
+
+func _on_WeaponButton_toggled(button_pressed):
+	if button_pressed:
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()
+		switch_weapon()
+	else:
+		switch_weapon()
+		if current_weapon:
+			current_weapon.queue_free()
+			remove_weapon()

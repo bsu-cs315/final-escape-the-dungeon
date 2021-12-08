@@ -8,6 +8,11 @@ func _ready():
 	$Item.set_item("Potion", "null")
 
 
+func pause_enemies(value):
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		enemy.pause(value)
+
+
 func _on_Chest_open(chest):
 	var position = chest.position
 	var new_item: Item = load("res://Levels/Main/Items/Item.tscn").instance()
@@ -47,8 +52,3 @@ func _on_BossArea_body_exited(body):
 	if body.name == 'Boss':
 		$BossWall.queue_free()
 		does_boss_exist = false
-
-
-func pause_enemies(value):
-	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		enemy.pause(value)

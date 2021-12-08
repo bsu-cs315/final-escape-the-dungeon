@@ -6,10 +6,6 @@ const KEY_TEXTURED := "res://Levels/Main/Items/key.png"
 const INDEX := 100
 
 
-func _on_RestartButton_pressed():
-	 var _ignored = get_tree().change_scene("res://Levels/TitleScreen.tscn")
-
-
 func update_weapons(primary_weapon, secondary_weapon, is_switch):
 	$SecondaryWindow/Weapon.texture = secondary_weapon.get_texture()
 	$PrimaryWindow/Weapon.texture = primary_weapon.get_texture()
@@ -29,3 +25,7 @@ func update_key_count(value):
 	particles.emitting = true
 	particles.z_index = INDEX
 	get_parent().call_deferred("add_child", particles)
+
+
+func _on_RestartButton_pressed():
+	 var _ignored = get_tree().change_scene("res://Levels/TitleScreen.tscn")

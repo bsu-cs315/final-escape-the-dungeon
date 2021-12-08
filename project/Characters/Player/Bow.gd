@@ -26,12 +26,6 @@ func _ready():
 	$Drawn.rotation_degrees = BOW_ROTATION
 
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	get_parent().spawn_arrow(arrow_damage)
-	get_parent().remove_weapon()
-	queue_free()
-
-
 func update_type(new_type):
 	type = new_type
 	if type == "Golden":
@@ -50,3 +44,9 @@ func attack():
 
 func get_texture():
 	return $Sprite.texture
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	get_parent().spawn_arrow(arrow_damage)
+	get_parent().remove_weapon()
+	queue_free()

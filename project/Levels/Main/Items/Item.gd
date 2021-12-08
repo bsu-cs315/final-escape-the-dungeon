@@ -24,11 +24,6 @@ export var area_type := "item"
 onready var player := get_node("../Player")
 
 
-func _on_Area2D_body_entered(body):
-	if body == player:
-		collect()
-
-
 func set_item(new_type, new_rank):
 	type = new_type
 	rank = new_rank
@@ -64,3 +59,8 @@ func set_item(new_type, new_rank):
 func collect():
 	player.collect_item(type, rank)
 	queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if body == player:
+		collect()

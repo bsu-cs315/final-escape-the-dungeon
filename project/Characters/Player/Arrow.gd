@@ -31,19 +31,6 @@ func _process(delta):
 	position = pos
 
 
-func _on_Timer_timeout():
-	queue_free()
-
-
-func _on_Arrow_body_entered(body):
-	print(body.name)
-	if body != get_parent().get_node("Player"):
-		if not body is TileMap and body.name != "GateBody":
-			body.take_damage(damage)
-		spawn_particles()
-		queue_free()
-
-
 func set_launcher(entity):
 	_launcher = entity
 
@@ -64,3 +51,16 @@ func fire(bow_pos, direction):
 	pos = bow_pos
 	facing = direction
 	rotation_degrees = direction
+
+
+func _on_Timer_timeout():
+	queue_free()
+
+
+func _on_Arrow_body_entered(body):
+	print(body.name)
+	if body != get_parent().get_node("Player"):
+		if not body is TileMap and body.name != "GateBody":
+			body.take_damage(damage)
+		spawn_particles()
+		queue_free()
