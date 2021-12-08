@@ -100,7 +100,7 @@ func spawn_key():
 
 
 func _on_Area2D_area_entered(area):
-	if area == get_node("../Player").get_current_weapon():
+	if area.name == 'PlayerWeapon':
 		take_damage(area.damage)
 
 

@@ -108,6 +108,7 @@ func attack():
 		call_deferred("add_child", current_weapon)
 		position_weapon()
 		current_weapon.attack()
+		current_weapon.name = "PlayerWeapon"
 		$AnimatedSprite.play("attack")
 
 
