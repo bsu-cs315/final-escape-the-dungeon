@@ -8,7 +8,7 @@ Use the arrow keys or wasd to move around. Aim and left-click with the mouse to 
 
 ### Reflection 
 
-For this second iteration, we didn't hit very many issues in what we were working on, so things went mostly smoothly. Things like items and picking them up, as well as the inventory, were interesting and fun to try to implement, and not very difficult at all given that they were both sort of new concepts for us. There was debate on *how* to implement those concepts, but we've agreed on the best way to do it and think it went well.
+Our third iteration was a lot of cleaning code and fixing/tweaking ideas that were introduced into the second iteration. Nothing really directly challenged us, but some of our interpretations for how to work on things were new and interesting. The best example for this is the boss battle, which rearranged most of how items work, as well as how enemies work in general.
 
 DOCUMENTATION OF STARS:
 Particles: Particles are emitted when a player picks up a key or potion, an arrow collides with an enemy or the wall, and when running into an enemy with the bow.
@@ -58,4 +58,4 @@ We personally believe that this project/iteration deserves an A, based on the fo
 - [death monster sound 2 by ibm5155](https://freesound.org/people/ibm5155/sounds/174912/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
 - [creature sounds » monster pain by soundmast123](https://freesound.org/people/soundmast123/sounds/571974/), licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
 - All texture assets created by Michael Heckman.
-Arrangement of ["Robot Rock"](https://www.youtube.com/watch?v=sFZjqVnWBhc) used in Boss Ambient licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/)
+Arrangement of ["Robot Rock"](https://www.youtube.com/watch?v=sFZjqVnWBhc) used in Boss Ambient licensed under [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/) and created by Michael Heckman
