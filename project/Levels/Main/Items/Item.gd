@@ -21,9 +21,6 @@ var rank := "null"
 export var area_type := "item"
 
 
-onready var player := get_node("../Player")
-
-
 func set_item(new_type, new_rank):
 	type = new_type
 	rank = new_rank
@@ -56,11 +53,11 @@ func set_item(new_type, new_rank):
 			texture = gold_longsword
 
 
-func collect():
+func collect(player):
 	player.collect_item(type, rank)
 	queue_free()
 
 
 func _on_Area2D_body_entered(body):
-	if body == player:
-		collect()
+	if body.name == 'Player':
+		collect(body)

@@ -1,18 +1,18 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/Main/Screens/Inventory/inventory.png" type="Texture" id=1]
-[ext_resource path="res://Levels/Fonts/moiktext.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Levels/Common/moiktext.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Characters/Player/walk.png" type="Texture" id=3]
 [ext_resource path="res://Levels/Main/Screens/Inventory/empty.png" type="Texture" id=4]
 [ext_resource path="res://Characters/Player/normal.png" type="Texture" id=5]
-[ext_resource path="res://Levels/Main/Inventory.gd" type="Script" id=6]
+[ext_resource path="res://Levels/Main/Screens/Inventory/Inventory.gd" type="Script" id=6]
 [ext_resource path="res://Levels/Main/Screens/Inventory/graybutton1.png" type="Texture" id=7]
 [ext_resource path="res://Levels/Main/Screens/Inventory/graybutton2.png" type="Texture" id=8]
 [ext_resource path="res://Levels/Main/Screens/Inventory/bluebutton1.png" type="Texture" id=9]
 [ext_resource path="res://Levels/Main/Screens/Inventory/bluebutton2.png" type="Texture" id=10]
-[ext_resource path="res://Levels/Main/MasterSlider.gd" type="Script" id=11]
-[ext_resource path="res://Levels/Main/SoundSlider.gd" type="Script" id=12]
-[ext_resource path="res://Levels/Main/MusicSlider.gd" type="Script" id=13]
+[ext_resource path="res://Levels/Main/Screens/Inventory/MasterSlider.gd" type="Script" id=11]
+[ext_resource path="res://Levels/Main/Screens/Inventory/SoundSlider.gd" type="Script" id=12]
+[ext_resource path="res://Levels/Main/Screens/Inventory/MusicSlider.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48

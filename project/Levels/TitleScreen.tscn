@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/TitleScreen.gd" type="Script" id=1]
-[ext_resource path="res://Levels/Fonts/moiktext.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Levels/Common/moiktext.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Levels/Main/Screens/logo.png" type="Texture" id=3]
 
 [sub_resource type="GradientTexture" id=1]
@@ -95,7 +95,6 @@ __meta__ = {
 }
 
 [node name="InstructionsPopup" type="Popup" parent="."]
-visible = true
 margin_left = -8.0
 margin_right = 782.0
 margin_bottom = 590.0

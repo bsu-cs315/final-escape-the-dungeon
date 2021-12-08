@@ -21,21 +21,19 @@ var _is_attacking := false
 var _is_paused := false
 
 
-onready var player := get_node("../Player")
-
-
 func _process(_delta):
+	var player_position = get_parent().get_player_position()
 	if _is_hurt or _is_attacking:
 		velocity = Vector2.ZERO
-	elif not _is_paused and abs(player.position.x - position.x) <= distance_range and abs(player.position.y - position.y) <= distance_range:
+	elif not _is_paused and abs(player_position.x - position.x) <= distance_range and abs(player_position.y - position.y) <= distance_range:
 		previous_velocity = velocity
-		if player.position.x > position.x:
+		if player_position.x > position.x:
 			velocity.x += speed
-		if player.position.x < position.x:
+		if player_position.x < position.x:
 			velocity.x -= speed
-		if player.position.y > position.y:
+		if player_position.y > position.y:
 			velocity.y += speed
-		if player.position.y < position.y:
+		if player_position.y < position.y:
 			velocity.y -= speed
 		$AnimatedSprite.play("walk")
 	else:
@@ -52,7 +50,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity * delta)
 
 
-func attack():
+func attack(player):
 	if not _is_attacking and not _is_hurt:
 		_is_attacking = true
 		$AnimatedSprite.play("attack")
@@ -62,7 +60,7 @@ func attack():
 func take_damage(damage):
 	if not _is_hurt:
 		health -= damage
-		$sound.stream = load("res://Characters/Enemies/deathMonsterconverted.wav")
+		$sound.stream = load("res://Characters/Enemies/Common/deathMonsterconverted.wav")
 		$sound.play()
 		if health <= 0:
 			$AnimatedSprite.play("killed")
@@ -74,8 +72,8 @@ func take_damage(damage):
 		else:
 			$AnimatedSprite.play("hurt")
 		if damage == 0:
-			var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
-			particles.texture = load("res://Characters/Enemies/stun_particle.png")
+			var particles = load("res://Characters/Player/Bows/ArrowParticles.tscn").instance()
+			particles.texture = load("res://Characters/Enemies/Common/stun_particle.png")
 			particles.position = position
 			particles.emitting = true
 			get_parent().call_deferred("add_child", particles)
@@ -102,7 +100,7 @@ func spawn_key():
 
 
 func _on_Area2D_area_entered(area):
-	if area == player.get_current_weapon():
+	if area == get_node("../Player").get_current_weapon():
 		take_damage(area.damage)
 
 
@@ -115,5 +113,5 @@ func _on_AnimatedSprite_animation_finished():
 
 
 func _on_Area2D_body_entered(body):
-	if body == player:
-		attack()
+	if body.name == 'Player':
+		attack(body)

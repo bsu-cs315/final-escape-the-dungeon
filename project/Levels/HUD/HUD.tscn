@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Levels/Fonts/moiktext.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Levels/Common/moiktext.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Levels/Main/Screens/Inventory/item-window.png" type="Texture" id=2]
 [ext_resource path="res://Levels/Main/Screens/Inventory/empty.png" type="Texture" id=3]
 [ext_resource path="res://Levels/HUD/HUD.gd" type="Script" id=4]

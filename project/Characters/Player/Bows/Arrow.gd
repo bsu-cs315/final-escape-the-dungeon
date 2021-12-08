@@ -40,7 +40,7 @@ func get_launcher():
 
 
 func spawn_particles():
-	var particles = load("res://Characters/Player/ArrowParticles.tscn").instance()
+	var particles = load("res://Characters/Player/Bows/ArrowParticles.tscn").instance()
 	get_parent().call_deferred("add_child", particles)
 	particles.emitting = true
 	particles.position = position
@@ -58,8 +58,7 @@ func _on_Timer_timeout():
 
 
 func _on_Arrow_body_entered(body):
-	print(body.name)
-	if body != get_parent().get_node("Player"):
+	if body.name != 'Player':
 		if not body is TileMap and body.name != "GateBody":
 			body.take_damage(damage)
 		spawn_particles()

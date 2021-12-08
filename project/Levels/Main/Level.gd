@@ -2,15 +2,23 @@ extends Node2D
 
 
 var does_boss_exist := true
-
+var player_position := Vector2.ZERO
 
 func _ready():
 	$Item.set_item("Potion", "null")
 
 
+func _process(_delta):
+	player_position = $Player.position
+
+
 func pause_enemies(value):
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		enemy.pause(value)
+
+
+func get_player_position():
+	return player_position
 
 
 func _on_Chest_open(chest):

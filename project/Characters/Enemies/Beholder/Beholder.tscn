@@ -7,9 +7,10 @@
 [ext_resource path="res://Characters/Enemies/Beholder/angry.png" type="Texture" id=5]
 [ext_resource path="res://Characters/Enemies/Beholder/dead.png" type="Texture" id=6]
 [ext_resource path="res://Characters/Enemies/Beholder/walk_3.png" type="Texture" id=7]
-[ext_resource path="res://Characters/Enemies/Enemy.gd" type="Script" id=8]
-[ext_resource path="res://Characters/Enemies/deathMonsterconverted.wav" type="AudioStream" id=9]
+[ext_resource path="res://Characters/Enemies/Common/Enemy.gd" type="Script" id=8]
+[ext_resource path="res://Characters/Enemies/Common/deathMonsterconverted.wav" type="AudioStream" id=9]
 [ext_resource path="res://Characters/Enemies/Beholder/hurt.png" type="Texture" id=10]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 28.5063
