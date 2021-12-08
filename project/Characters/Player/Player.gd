@@ -4,6 +4,7 @@ extends KinematicBody2D
 const ROTATION_OFFSET := 90
 const WALL_COLLISION := Vector2(0,0)
 const POTION_HEALTH := 2.00
+const PARTICLE_INDEX := 100
 
 
 export var speed := 500
@@ -164,10 +165,6 @@ func killed():
 	$HUD/EndMessage.visible = true
 
 
-func win():
-	pass
-
-
 func pause():
 	is_paused = true
 	get_parent().pause_enemies(true)
@@ -240,5 +237,5 @@ func spawn_particles(par_tex):
 	particles.texture = load(par_tex)
 	particles.position = position
 	particles.emitting = true
-	particles.z_index = 100
+	particles.z_index = PARTICLE_INDEX
 	get_parent().call_deferred("add_child", particles)

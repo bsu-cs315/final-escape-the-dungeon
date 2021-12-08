@@ -13,14 +13,12 @@ const GOLD_DAMAGE := 3
 const BOW_ROTATION := -45
 
 
-var arrow_damage := NORMAL_DAMAGE
-
-
 export var damage := 0
 export var weapon_type := "Bow"
 
 
 var type := "Normal"
+var arrow_damage := NORMAL_DAMAGE
 
 
 func _ready():

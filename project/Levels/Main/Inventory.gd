@@ -22,6 +22,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		visible = false
 
 
+func _on_HowToPlay_pressed():
+	print('press')
+	$InstructionsPopup.popup()
+
+
 func show_inventory(primary_weapon, secondary_weapon, health_amount):
 	visible = true
 	$AnimationPlayer.stop()
@@ -34,8 +39,3 @@ func show_inventory(primary_weapon, secondary_weapon, health_amount):
 func hide_inventory():
 	$AnimationPlayer.stop()
 	$AnimationPlayer.play("close")
-
-
-func _on_HowToPlay_pressed():
-	print('press')
-	$InstructionsPopup.popup()

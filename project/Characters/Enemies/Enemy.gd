@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 
+const KEY_OFFSET := 48
+
+
 export var health := 1
 export var max_health := 3
 export var attack_strength :=2
@@ -112,5 +115,5 @@ func spawn_key():
 	var key = load("res://Levels/Main/Items/Item.tscn").instance()
 	key.set_item("Key", "null")
 	key.position = position
-	key.position.y = position.y + 48
+	key.position.y = position.y + KEY_OFFSET
 	get_parent().call_deferred("add_child", key)
