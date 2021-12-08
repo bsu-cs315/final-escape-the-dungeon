@@ -36,6 +36,8 @@ func _process(_delta):
 		if player_position.y < position.y:
 			velocity.y -= speed
 		$AnimatedSprite.play("walk")
+		if name == 'Boss':
+			get_parent().play_boss_ambient()
 	else:
 		velocity = Vector2.ZERO
 		$AnimatedSprite.play("default")

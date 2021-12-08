@@ -3,6 +3,7 @@ extends Node2D
 
 var does_boss_exist := true
 var player_position := Vector2.ZERO
+var is_boss_ambient_playing := false
 
 func _ready():
 	$Item.set_item("Potion", "null")
@@ -19,6 +20,12 @@ func pause_enemies(value):
 
 func get_player_position():
 	return player_position
+
+
+func play_boss_ambient():
+	if not is_boss_ambient_playing:
+		is_boss_ambient_playing = true
+		$Boss/BossAmbient.play()
 
 
 func _on_Chest_open(chest):
@@ -60,3 +67,7 @@ func _on_BossArea_body_exited(body):
 	if body.name == 'Boss':
 		$BossWall.queue_free()
 		does_boss_exist = false
+
+
+func _on_BossAmbient_finished():
+	$Boss/BossAmbient.play()
