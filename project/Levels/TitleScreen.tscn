@@ -95,6 +95,7 @@ __meta__ = {
 }
 
 [node name="InstructionsPopup" type="Popup" parent="."]
+visible = true
 margin_left = -8.0
 margin_right = 782.0
 margin_bottom = 590.0
@@ -154,7 +155,7 @@ Click the weapons (bottom right) to change weapons
 
 
 How to Win
-Defeat all the enemies to open the door and then excape the dungeon"
+Defeat the boss to open the door and then excape the dungeon"
 readonly = true
 __meta__ = {
 "_edit_use_anchors_": false
